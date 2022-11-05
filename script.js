@@ -1,8 +1,8 @@
-console.log('hello');
-
+// DOM elements variable declarations
 citynameEL = document.querySelector('#cityName');
 submitbtnEl = document.querySelector('#submitBtn');
 
+// variable declaration for my open weather API key
 var openweatherAPIKey = "86428bd2b8af57a99daa14d368265a5f";
 
 /**
