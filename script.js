@@ -12,7 +12,7 @@ function getApi() {
     var cityName = citynameEL.value;
     console.log('City Name', cityName);
 
-    var onedayrequestURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + openweatherAPIKey;
+    var onedayrequestURL = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${openweatherAPIKey}`;
 
     console.log('Request URL', onedayrequestURL);
 
