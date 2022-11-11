@@ -6,7 +6,7 @@ body {
   }
 
 /* main container styling */
-.container {
+.maincontainer {
     border-style: solid;
     border-radius: 10px;
     margin-top: 140px;
