@@ -5,16 +5,6 @@ body {
     background: rgb(189 205 200);
   }
 
-/* main container styling */
-.maincontainer {
-    border-style: solid;
-    border-radius: 10px;
-    margin-top: 140px;
-    margin-right: 10px;
-    margin-left: 10px;
-    background-color: #d9d9d9;
-}
-  
 /* heading styling */
 h1 {
     font-size: 45px;
@@ -23,4 +13,85 @@ h1 {
     background-color: rgb(37, 37, 210);
     margin: 7px;
     border-radius: 5px;
+}
+
+h2 {
+    margin:5px;
+    font-size: 20px;
+}
+
+h3 {
+    margin:5px;
+}
+
+h4 {
+    margin: 5px;
+}
+
+hr {
+    margin: 3px;
+}
+
+/* main container styling */
+#maincontainer {
+    border-style: solid;
+    border-radius: 10px;
+    margin-top: 140px;
+    margin-right: 50px;
+    margin-left: 50px;
+    background-color: #d9d9d9;
+}
+
+#maincontainerChild1 {
+    display: flex;
+}
+  
+#asideSection {
+    margin: 5px;
+}
+
+#asideChild1 {
+
+}
+
+#cityName {
+    margin: 3px;
+    height: 20px;
+    border-radius: 3px;
+}
+
+#submitBtn {
+    width: 170px;
+    background-color: #0ba8db;
+    margin: 3px;
+}
+
+#submitBtn:hover {
+    background-color: #378654;
+}
+
+#citySearchHistory {
+
+}
+
+#containerCurrentDayForecast {
+    border-style: groove;
+    margin: 5px 5px 20px;
+    width: 580px;
+}
+
+#containerNextFiveDaysForecast {
+    width: 590px;
+    margin: 4px;
+}
+
+#child1ContainerNextFiveDaysForecast {
+    display: flex;
+    flex-direction: row;
+}
+
+.next5DayForecast {
+    background-color: rgb(14, 14, 75);
+    color: white;
+    margin: 5px;
 }

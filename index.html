@@ -5,74 +5,76 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
 </head>
 
 <body>
-    <main class="maincontainer">
+    <main id="maincontainer">
         <h1>Weather Dashboard</h1>
-        <aside class="asideSection">
-            <div id="asideChild1">
-                <h2>Search for a city:</h2>
-                <textarea id="cityName" placeholder="Philadelphia"></textarea>
-                <button id="submitBtn">Submit</button>
-                <hr>
-                <ul id="citiesinLocalStorage">
-                    <li>Philadephia</li>
-                    <li>San Diego</li>
-                </ul>
-            </div>
-          </aside>
+        <section id="maincontainerChild1">
+            <section id="asideSection">
+                <div id="asideChild1">
+                    <h2>Search for a city:</h2>
+                    <textarea id="cityName" placeholder="Philadelphia"></textarea>
+                    <div>
+                        <button id="submitBtn">Submit</button>
+                    </div>
+                    <hr>
+                    <ul id="citySearchHistory">
+                        <li>Philadephia</li>
+                        <li>San Diego</li>
+                    </ul>
+                </div>
+            </section>
 
-          <section>
-            <div id="currentDayForecast">
-                <h3>City Name: Philadelphia</h3>
-                <h4>Temp: </h4>
-                <h4>Wind: </h4>
-                <h4>Humidity: </h4>
-            </div>
-            <div>
-                <h3>5-Day Forecast</h3>
-                <div id="nextFiveDaysForecast">
-                    <div id="next1DayForecast">
-                        <h4>Date: </h4>
-                        <h4>Weather Icon: </h4>
-                        <h4>Temp: </h4>
-                        <h4>Wind: </h4>
-                        <h4>Humidity: </h4>
-                    </div>
-                    <div id="next2DayForecast">
-                        <h4>Date: </h4>
-                        <h4>Weather Icon: </h4>
-                        <h4>Temp: </h4>
-                        <h4>Wind: </h4>
-                        <h4>Humidity: </h4>
-                    </div>
-                    <div id="next3DayForecast">
-                        <h4>Date: </h4>
-                        <h4>Weather Icon: </h4>
-                        <h4>Temp: </h4>
-                        <h4>Wind: </h4>
-                        <h4>Humidity: </h4>
-                    </div>
-                    <div id="next4DayForecast">
-                        <h4>Date: </h4>
-                        <h4>Weather Icon: </h4>
-                        <h4>Temp: </h4>
-                        <h4>Wind: </h4>
-                        <h4>Humidity: </h4>
-                    </div>
-                    <div id="next5DayForecast">
-                        <h4>Date: </h4>
-                        <h4>Weather Icon: </h4>
-                        <h4>Temp: </h4>
-                        <h4>Wind: </h4>
-                        <h4>Humidity: </h4>
+            <section>
+                <div id="containerCurrentDayForecast">
+                    <h2>City Name: Philadelphia</h2>
+                    <h4>Temp: </h4>
+                    <h4>Wind: </h4>
+                    <h4>Humidity: </h4>
+                </div>
+                <div id="containerNextFiveDaysForecast">
+                    <h3>5-Day Forecast: </h3>
+                    <div id="child1ContainerNextFiveDaysForecast">
+                        <div class="next5DayForecast">
+                            <h4>Date: </h4>
+                            <h4>Weather Icon: </h4>
+                            <h4>Temp: </h4>
+                            <h4>Wind: </h4>
+                            <h4>Humidity: </h4>
+                        </div>
+                        <div class="next5DayForecast">
+                            <h4>Date: </h4>
+                            <h4>Weather Icon: </h4>
+                            <h4>Temp: </h4>
+                            <h4>Wind: </h4>
+                            <h4>Humidity: </h4>
+                        </div>
+                        <div class="next5DayForecast">
+                            <h4>Date: </h4>
+                            <h4>Weather Icon: </h4>
+                            <h4>Temp: </h4>
+                            <h4>Wind: </h4>
+                            <h4>Humidity: </h4>
+                        </div>
+                        <div class="next5DayForecast">
+                            <h4>Date: </h4>
+                            <h4>Weather Icon: </h4>
+                            <h4>Temp: </h4>
+                            <h4>Wind: </h4>
+                            <h4>Humidity: </h4>
+                        </div>
+                        <div class="next5DayForecast">
+                            <h4>Date: </h4>
+                            <h4>Weather Icon: </h4>
+                            <h4>Temp: </h4>
+                            <h4>Wind: </h4>
+                            <h4>Humidity: </h4>
+                        </div>
                     </div>
                 </div>
-            </div>
-          </section>
-
+        </section>
     </main>
 
     <script src="./script.js"></script>
