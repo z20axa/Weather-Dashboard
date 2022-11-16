@@ -31,6 +31,7 @@ function getApi() {
         .then(function (data) {
             // console.log('Data', data);
             // console.log('Temp Kelvin', data.main.temp);
+            // fiveDayForeDay1.textContent = "Temp: " + Math.floor((data.list[0].main.temp - 273.15) * 1.8 + 32) + "°F";
             
             // need a moment command to convert number to actual date
             // console.log('Lat', data.coord.lat);
@@ -43,11 +44,6 @@ function getApi() {
             // console.log("Icon", currentDayIconPage);
             imgTempIconEl.setAttribute("src", currentDayIconPage);
             imgTempIconEl.setAttribute("alt", "Weather Icon");
-
-
-
-          
-
 
             var lon = data.coord.lon;
             var lat = data.coord.lat;
