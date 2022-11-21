@@ -9,27 +9,31 @@ imgTempIconEl = document.querySelector('#imgTempIcon');
 var openweatherAPIKey = "86428bd2b8af57a99daa14d368265a5f";
 
 /**
- * function declaration 
+ * function declaration for API calls to get data and modiy attributes of the DOM element variables
  */
 function getApi() {
     // variable declaration for the entered city name
     var cityName = inputCitynameEl.value;
-    console.log('City Name', cityName);
+    // console.log('City Name', cityName);
 
     // modify the text/attributes for the city entered to be displayed
     spanCityNameEl.textContent = cityName;
 
-
+    // varibale declaration for URL to get current day weather data
     var onedayrequestURL = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${openweatherAPIKey}`;
-
     // console.log('Request URL', onedayrequestURL);
 
+    // fetch request to get data from API for current day weather condition 
     fetch(onedayrequestURL)
         .then(function (response) {
         return response.json();
         })
         .then(function (data) {
             // console.log('Data', data);
+
+
+            
+
             // console.log('Temp Kelvin', data.main.temp);
             // fiveDayForeDay1.textContent = "Temp: " + Math.floor((data.list[0].main.temp - 273.15) * 1.8 + 32) + "°F";
             
@@ -50,6 +54,7 @@ function getApi() {
 
             var fivedaysrequestURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${openweatherAPIKey}`;
 
+            // fetch request to get data from API for the next 5 days using lon and lat data from previous fecth call 
             fetch(fivedaysrequestURL)
                 .then(function (response) {
                 return response.json();
