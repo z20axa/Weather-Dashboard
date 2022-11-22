@@ -33,6 +33,7 @@ nextDay5TempEl = document.querySelector('#nextDay5Temp');
 nextDay5WindEl = document.querySelector('#nextDay5Wind');
 nextDay5HumidityEl = document.querySelector('#nextDay5Humidity');
 citySearchHistoryEl = document.querySelector('#citySearchHistory');
+citySearchHistoryBtnEl = document.querySelector('.citySearchHistoryBtn');
 
 // variable declarations 
 var openWeatherAPIKey = "86428bd2b8af57a99daa14d368265a5f"; // for open weather API key
@@ -93,6 +94,7 @@ var nextDay5IconPage = ""; // for next day5 forecast icon code page data
 var nextDay5Temp = ""; // for next day5 forecast temp data
 var nextDay5Wind = ""; // for next day5 forecast wind data
 var nextDay5Humidity = ""; // for next day5 forecast humidity data
+var searchedCityArr = []; // for search city history array
 
 /**
  * function declaration for API calls to get data for initial city display current day and next 5days forecast and modiy attributes of the DOM element variables
@@ -252,6 +254,12 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
     // variable assigments
     cityNameSubmitted = inputCityNameEl.value;
     currentDayRequestURL = `http://api.openweathermap.org/data/2.5/weather?q=${cityNameSubmitted}&appid=${openWeatherAPIKey}`;
+    
+    // adds the submitted city to searched city array at the end
+    searchCityArr.push(cityNameSubmitted);
+
+    // save to local storage the submitted city array
+    localStorage.setItem("Searched Cities", JSON.stringify(searchedCityArr));
 
     // fetch request to get data from API for current day weather condition 
     fetch(currentDayRequestURL)
@@ -402,7 +410,10 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
  */
 function getCitySearchHistoryApi() {
     // variable assigments
-    cityNameSubmitted = inputCityNameEl.value;
+    searchCity = citySearchHistoryBtnEl.value;
+    console.log('Seached City', searchCity);
+
+
     currentDayRequestURL = `http://api.openweathermap.org/data/2.5/weather?q=${cityNameSubmitted}&appid=${openWeatherAPIKey}`;
 
     // fetch request to get data from API for current day weather condition 
@@ -548,6 +559,25 @@ function getCitySearchHistoryApi() {
     });
 };
 
+
+
+/** function declaration to get search city history items from the local storage and for display
+ * 
+ * @returns 
+ */
+ function renderquizScore(){
+    var initials = JSON.parse(localStorage.getItem("Initials")); // get initals value from local storage
+    var quizscore = JSON.parse(localStorage.getItem("QuizScore")); // get quiz score from local storage
+  
+      // checks if local storage items are empty
+      if (initials===null || quizscore===null){
+          return;
+      };
+  
+      // modify the text/attributes for the initals and quiz score for display
+      highscoreSection.textContent = '1. ' + initials + ' - ' + quizscore;
+  };
+
 // function call to display the page inital city forecast data
 getInitialDisplayedCityApi();
 
@@ -556,3 +586,18 @@ submitBtnEl.addEventListener('click', getSubmittedCityApi);
 
 // click event listener when the city search history buttom is submitted and function call to get API data
 citySearchHistoryEl.addEventListener('click', getCitySearchHistoryApi);
+
+// event listener to the initals submit button 
+initialsButton.addEventListener("click", function(event){
+    event.preventDefault();
+      // checks to make sure initial input is not blank
+      if(initials.value === ""){
+        alert("Initials cannot be blank!!!");
+      }else{
+      // store initals and quiz score to local storage 
+      localStorage.setItem("Initials", JSON.stringify(initials.value));
+      localStorage.setItem("QuizScore", JSON.stringify(quizScore));
+      // once submit button is clicked takes you to high score page
+      window.location.href="highscores.html";
+      };
+    });
