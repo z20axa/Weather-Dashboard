@@ -40,43 +40,43 @@ var currentDayRequestURL = ""; // for URL to get the current day weather forecas
 var nextFivedaysRequestURL = ""; // for URL to get the next 5-days weather forecast data
 var spanCityName = ""; // for city name to be displayed
 // need current date variable
-var currentDayIconCode = ""; // for current day icon code data
-var currentDayIconPage = ""; // for current day icon code page data
-var currentDayTemp = ""; // for current day temp data
-var currentDayWind = "" // for current day wind data
-var currentDayHumidity = "" // for current day humidity data
-var lon = ""; // for city sybmitted lon data
-var lat = ""; // for city sybmitted lat data
+var currentDayIconCode = ""; // for current day forecast icon code data
+var currentDayIconPage = ""; // for current day forecast icon code page data
+var currentDayTemp = ""; // for current day forecast temp data
+var currentDayWind = "" // for current day forecast wind data
+var currentDayHumidity = "" // for current day forecast humidity data
+var lon = ""; // for city submitted lon data
+var lat = ""; // for city submitted lat data
 // need next day 1 date varible
-var nextDay1IconCode = "";
-var nextDay1IconPage = "";
-var nextDay1Temp = "";
-var nextDay1Wind = "";
-var nextDay1Humidity = "";
+var nextDay1IconCode = ""; // for next day1 forecast icon code data
+var nextDay1IconPage = ""; // for next day1 forecast icon code page data
+var nextDay1Temp = ""; // for next day1 forecast temp data
+var nextDay1Wind = ""; // for next day1 forecast wind data
+var nextDay1Humidity = ""; // for next day1 forecast humidity data
 // need next day 2 date varible
-var nextDay2IconCode = "";
-var nextDay2IconPage = "";
-var nextDay2Temp = "";
-var nextDay2Wind = "";
-var nextDay2Humidity = "";
+var nextDay2IconCode = ""; // for next day2 forecast icon code data
+var nextDay2IconPage = ""; // for next day2 forecast icon code page data
+var nextDay2Temp = ""; // for next day2 forecast temp data
+var nextDay2Wind = ""; // for next day2 forecast wind data
+var nextDay2Humidity = ""; // for next day2 forecast humidity data
 // need next day 3 date varible
-var nextDay3IconCode = "";
-var nextDay3IconPage = "";
-var nextDay3Temp = "";
-var nextDay3Wind = "";
-var nextDay3Humidity = "";
+var nextDay3IconCode = ""; // for next day3 forecast icon code data
+var nextDay3IconPage = ""; // for next day3 forecast icon code page data
+var nextDay3Temp = ""; // for next day3 forecast temp data
+var nextDay3Wind = ""; // for next day3 forecast wind data
+var nextDay3Humidity = ""; // for next day3 forecast humidity data
 // need next day 4 date varible
-var nextDay4IconCode = "";
-var nextDay4IconPage = "";
-var nextDay4Temp = "";
-var nextDay4Wind = "";
-var nextDay4Humidity = "";
+var nextDay4IconCode = ""; // for next day4 forecast icon code data
+var nextDay4IconPage = ""; // for next day4 forecast icon code page data
+var nextDay4Temp = ""; // for next day4 forecast temp data
+var nextDay4Wind = ""; // for next day4 forecast wind data
+var nextDay4Humidity = ""; // for next day4 forecast humidity data
 // need next day 5 date varible
-var nextDay5IconCode = "";
-var nextDay5IconPage = "";
-var nextDay5Temp = "";
-var nextDay5Wind = "";
-var nextDay5Humidity = "";
+var nextDay5IconCode = ""; // for next day5 forecast icon code data
+var nextDay5IconPage = ""; // for next day5 forecast icon code page data
+var nextDay5Temp = ""; // for next day5 forecast temp data
+var nextDay5Wind = ""; // for next day5 forecast wind data
+var nextDay5Humidity = ""; // for next day5 forecast humidity data
 
 /**
  * function declaration for API calls to get data and modiy attributes of the DOM element variables
@@ -137,28 +137,28 @@ function getApi() {
                 spanNextDay1WindEl.textContent = nextDay1Wind;
                 spanNextDay1HumidityEl.textContent = nextDay1Humidity;
 
-                //next day2 forecast variables assigments from API data received 
+                // next day2 forecast variables assigments from API data received 
                 nextDay2IconCode = data.list[8].weather[0].icon;
                 nextDay2IconPage = `http://openweathermap.org/img/w/${nextDay2IconCode}.png`;
                 nextDay2Temp = Math.floor((data.list[8].main.temp - 273.15) * 1.8 + 32);
                 nextDay2Wind = data.list[8].wind.speed;
                 nextDay2Humidity = data.list[8].main.humidity;
 
-                // // next day2 DOM elements modification of the text/attributes for display
+                // next day2 DOM elements modification of the text/attributes for display
                 spanNextDay2ImgTempIconEl.setAttribute("src", nextDay2IconPage);
                 spanNextDay2ImgTempIconEl.setAttribute("alt", "Weather Icon");
                 spanNextDay2TempEl.textContent = nextDay2Temp;
                 spanNextDay2WindEl.textContent = nextDay2Wind;
                 spanNextDay2HumidityEl.textContent = nextDay2Humidity;
 
-                //next day3 forecast variables assigments from API data received 
+                // next day3 forecast variables assigments from API data received 
                 nextDay3IconCode = data.list[16].weather[0].icon;
                 nextDay3IconPage = `http://openweathermap.org/img/w/${nextDay3IconCode}.png`;
                 nextDay3Temp = Math.floor((data.list[16].main.temp - 273.15) * 1.8 + 32);
                 nextDay3Wind = data.list[16].wind.speed;
                 nextDay3Humidity = data.list[16].main.humidity;
 
-                // // next day3 DOM elements modification of the text/attributes for display
+                // next day3 DOM elements modification of the text/attributes for display
                 spanNextDay3ImgTempIconEl.setAttribute("src", nextDay3IconPage);
                 spanNextDay3ImgTempIconEl.setAttribute("alt", "Weather Icon");
                 spanNextDay3TempEl.textContent = nextDay3Temp;
