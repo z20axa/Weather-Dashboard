@@ -79,9 +79,128 @@ var nextDay5Wind = ""; // for next day5 forecast wind data
 var nextDay5Humidity = ""; // for next day5 forecast humidity data
 
 /**
+ * function declaration for API calls to get data for initial city display and modiy attributes of the DOM element variables
+ */
+ function getInitialDisplayedCityApi() {
+    // variable assigments
+    cityNameSubmitted = "Philadelphia";
+    currentDayRequestURL = `http://api.openweathermap.org/data/2.5/weather?q=${cityNameSubmitted}&appid=${openWeatherAPIKey}`;
+
+    // fetch request to get data from API for current day weather condition 
+    fetch(currentDayRequestURL)
+        .then(function (response) {
+        return response.json();
+        })
+        .then(function (data) {
+            // console.log('Data', data);
+
+            // variables assigments from API data received 
+            spanCityName = data.name;
+            currentDayIconCode = data.weather[0].icon;
+            currentDayIconPage = `http://openweathermap.org/img/w/${currentDayIconCode}.png`;
+            currentDayTemp = Math.floor((data.main.temp - 273.15) * 1.8 + 32);
+            currentDayWind = data.wind.speed;
+            currentDayHumidity = data.main.humidity; 
+            lon = data.coord.lon;
+            lat = data.coord.lat;
+
+            // DOM elements modification of the text/attributes for display
+            spanCityNameEl.textContent = spanCityName;
+            spanCurrentDayImgTempIconEl.setAttribute("src", currentDayIconPage);
+            spanCurrentDayImgTempIconEl.setAttribute("alt", "Weather Icon");
+            spanCurrentDayTempEl.textContent = currentDayTemp;
+            spanCurrentDayWindEl.textContent = currentDayWind;
+            spanCurrentDayHumidityEl.textContent = currentDayHumidity;
+              
+            // variable assigment for next 5 days requet URL
+            nextFivedaysRequestURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${openWeatherAPIKey}`;
+
+            // fetch request to get data from API for the next 5-days weather forecast using lon and lat data from previous fecth call 
+            fetch(nextFivedaysRequestURL)
+                .then(function (response) {
+                return response.json();
+                })
+                .then(function (data) {
+                // console.log('Second fetch Data', data);
+
+                // next day1 forecast variables assigments from API data received 
+                nextDay1IconCode = data.list[0].weather[0].icon;
+                nextDay1IconPage = `http://openweathermap.org/img/w/${nextDay1IconCode}.png`;
+                nextDay1Temp = Math.floor((data.list[0].main.temp - 273.15) * 1.8 + 32);
+                nextDay1Wind = data.list[0].wind.speed;
+                nextDay1Humidity = data.list[0].main.humidity;
+
+                // next day1 DOM elements modification of the text/attributes for display
+                spanNextDay1ImgTempIconEl.setAttribute("src", nextDay1IconPage);
+                spanNextDay1ImgTempIconEl.setAttribute("alt", "Weather Icon");
+                spanNextDay1TempEl.textContent = nextDay1Temp;
+                spanNextDay1WindEl.textContent = nextDay1Wind;
+                spanNextDay1HumidityEl.textContent = nextDay1Humidity;
+
+                // next day2 forecast variables assigments from API data received 
+                nextDay2IconCode = data.list[8].weather[0].icon;
+                nextDay2IconPage = `http://openweathermap.org/img/w/${nextDay2IconCode}.png`;
+                nextDay2Temp = Math.floor((data.list[8].main.temp - 273.15) * 1.8 + 32);
+                nextDay2Wind = data.list[8].wind.speed;
+                nextDay2Humidity = data.list[8].main.humidity;
+
+                // next day2 DOM elements modification of the text/attributes for display
+                spanNextDay2ImgTempIconEl.setAttribute("src", nextDay2IconPage);
+                spanNextDay2ImgTempIconEl.setAttribute("alt", "Weather Icon");
+                spanNextDay2TempEl.textContent = nextDay2Temp;
+                spanNextDay2WindEl.textContent = nextDay2Wind;
+                spanNextDay2HumidityEl.textContent = nextDay2Humidity;
+
+                // next day3 forecast variables assigments from API data received 
+                nextDay3IconCode = data.list[16].weather[0].icon;
+                nextDay3IconPage = `http://openweathermap.org/img/w/${nextDay3IconCode}.png`;
+                nextDay3Temp = Math.floor((data.list[16].main.temp - 273.15) * 1.8 + 32);
+                nextDay3Wind = data.list[16].wind.speed;
+                nextDay3Humidity = data.list[16].main.humidity;
+
+                // next day3 DOM elements modification of the text/attributes for display
+                spanNextDay3ImgTempIconEl.setAttribute("src", nextDay3IconPage);
+                spanNextDay3ImgTempIconEl.setAttribute("alt", "Weather Icon");
+                spanNextDay3TempEl.textContent = nextDay3Temp;
+                spanNextDay3WindEl.textContent = nextDay3Wind;
+                spanNextDay3HumidityEl.textContent = nextDay3Humidity;
+
+                // next day4 forecast variables assigments from API data received 
+                nextDay4IconCode = data.list[24].weather[0].icon;
+                nextDay4IconPage = `http://openweathermap.org/img/w/${nextDay4IconCode}.png`;
+                nextDay4Temp = Math.floor((data.list[24].main.temp - 273.15) * 1.8 + 32);
+                nextDay4Wind = data.list[24].wind.speed;
+                nextDay4Humidity = data.list[24].main.humidity;
+
+                // next day4 DOM elements modification of the text/attributes for display
+                spanNextDay4ImgTempIconEl.setAttribute("src", nextDay4IconPage);
+                spanNextDay4ImgTempIconEl.setAttribute("alt", "Weather Icon");
+                spanNextDay4TempEl.textContent = nextDay4Temp;
+                spanNextDay4WindEl.textContent = nextDay4Wind;
+                spanNextDay4HumidityEl.textContent = nextDay4Humidity;
+
+                // next day5 forecast variables assigments from API data received 
+                nextDay5IconCode = data.list[32].weather[0].icon;
+                nextDay5IconPage = `http://openweathermap.org/img/w/${nextDay5IconCode}.png`;
+                nextDay5Temp = Math.floor((data.list[32].main.temp - 273.15) * 1.8 + 32);
+                nextDay5Wind = data.list[32].wind.speed;
+                nextDay5Humidity = data.list[32].main.humidity;
+
+                // next day5 DOM elements modification of the text/attributes for display
+                spanNextDay5ImgTempIconEl.setAttribute("src", nextDay5IconPage);
+                spanNextDay5ImgTempIconEl.setAttribute("alt", "Weather Icon");
+                spanNextDay5TempEl.textContent = nextDay5Temp;
+                spanNextDay5WindEl.textContent = nextDay5Wind;
+                spanNextDay5HumidityEl.textContent = nextDay5Humidity;
+        }); 
+    });
+};
+
+
+/**
  * function declaration for API calls to get data and modiy attributes of the DOM element variables
  */
-function getApi() {
+function getSubmittedCityApi() {
     // variable assigments
     cityNameSubmitted = inputCityNameEl.value;
     currentDayRequestURL = `http://api.openweathermap.org/data/2.5/weather?q=${cityNameSubmitted}&appid=${openWeatherAPIKey}`;
@@ -196,6 +315,8 @@ function getApi() {
     });
 };
 
+// function call to display the inital city forecast data
+getInitialDisplayedCityApi();
 
 // click event listener when the city name is submitted and function call to getApi
-submitBtnEl.addEventListener('click', getApi);
+submitBtnEl.addEventListener('click', getSubmittedCityApi);
