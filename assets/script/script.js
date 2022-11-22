@@ -171,8 +171,13 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
                 nextDay2Temp = Math.floor((data.list[8].main.temp - 273.15) * 1.8 + 32);
                 nextDay2Wind = data.list[8].wind.speed;
                 nextDay2Humidity = data.list[8].main.humidity;
+                nextDay2Date = data.list[0].dt_txt;
+                nextDay2DateYear = nextDay2Date.slice(0,4);
+                nextDay2DateMonth = nextDay2Date.slice(5,7);
+                nextDay2DateDay = nextDay2Date.slice(8,10);
 
                 // next day2 DOM elements modification of the text/attributes for display
+                nextDay2DateEl.textContent = `${nextDay2DateMonth}/${nextDay2DateDay}/${nextDay2DateYear}`;
                 nextDay2ImgTempIconEl.setAttribute("src", nextDay2IconPage);
                 nextDay2ImgTempIconEl.setAttribute("alt", "Weather Icon");
                 nextDay2TempEl.textContent = nextDay2Temp;
@@ -185,8 +190,13 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
                 nextDay3Temp = Math.floor((data.list[16].main.temp - 273.15) * 1.8 + 32);
                 nextDay3Wind = data.list[16].wind.speed;
                 nextDay3Humidity = data.list[16].main.humidity;
+                nextDay3Date = data.list[0].dt_txt;
+                nextDay3DateYear = nextDay3Date.slice(0,4);
+                nextDay3DateMonth = nextDay3Date.slice(5,7);
+                nextDay3DateDay = nextDay3Date.slice(8,10);
 
                 // next day3 DOM elements modification of the text/attributes for display
+                nextDay3DateEl.textContent = `${nextDay3DateMonth}/${nextDay3DateDay}/${nextDay3DateYear}`;
                 nextDay3ImgTempIconEl.setAttribute("src", nextDay3IconPage);
                 nextDay3ImgTempIconEl.setAttribute("alt", "Weather Icon");
                 nextDay3TempEl.textContent = nextDay3Temp;
@@ -199,8 +209,13 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
                 nextDay4Temp = Math.floor((data.list[24].main.temp - 273.15) * 1.8 + 32);
                 nextDay4Wind = data.list[24].wind.speed;
                 nextDay4Humidity = data.list[24].main.humidity;
+                nextDay4Date = data.list[0].dt_txt;
+                nextDay4DateYear = nextDay4Date.slice(0,4);
+                nextDay4DateMonth = nextDay4Date.slice(5,7);
+                nextDay4DateDay = nextDay4Date.slice(8,10);
 
                 // next day4 DOM elements modification of the text/attributes for display
+                nextDay4DateEl.textContent = `${nextDay4DateMonth}/${nextDay4DateDay}/${nextDay4DateYear}`;
                 nextDay4ImgTempIconEl.setAttribute("src", nextDay4IconPage);
                 nextDay4ImgTempIconEl.setAttribute("alt", "Weather Icon");
                 nextDay4TempEl.textContent = nextDay4Temp;
@@ -213,14 +228,19 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
                 nextDay5Temp = Math.floor((data.list[32].main.temp - 273.15) * 1.8 + 32);
                 nextDay5Wind = data.list[32].wind.speed;
                 nextDay5Humidity = data.list[32].main.humidity;
+                nextDay5Date = data.list[0].dt_txt;
+                nextDay5DateYear = nextDay5Date.slice(0,4);
+                nextDay5DateMonth = nextDay5Date.slice(5,7);
+                nextDay5DateDay = nextDay5Date.slice(8,10);
 
                 // next day5 DOM elements modification of the text/attributes for display
+                nextDay5DateEl.textContent = `${nextDay5DateMonth}/${nextDay5DateDay}/${nextDay5DateYear}`;
                 nextDay5ImgTempIconEl.setAttribute("src", nextDay5IconPage);
                 nextDay5ImgTempIconEl.setAttribute("alt", "Weather Icon");
                 nextDay5TempEl.textContent = nextDay5Temp;
                 nextDay5WindEl.textContent = nextDay5Wind;
                 nextDay5HumidityEl.textContent = nextDay5Humidity;
-        }); 
+        });
     });
 };
 
