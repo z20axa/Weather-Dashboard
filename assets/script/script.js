@@ -2,7 +2,7 @@
 inputCityNameEl = document.querySelector('#inputCityName');
 submitBtnEl = document.querySelector('#submitBtn');
 cityNameEl = document.querySelector('#cityName');
-currentDayEl = document.querySelector('#currentDate');
+currentDayDateEl = document.querySelector('#currentDayDate');
 currentDayImgTempIconEl = document.querySelector('#currentDayImgTempIcon');
 currentDayTempEl = document.querySelector('#currentDayTemp');
 currentDayWindEl = document.querySelector('#currentDayWind');
@@ -128,7 +128,7 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
 
             // DOM elements current day modification of the text/attributes for display
             cityNameEl.textContent = cityName;
-            currentDayEl.textContent = currentDayDate;
+            currentDayDateEl.textContent = currentDayDate;
             currentDayImgTempIconEl.setAttribute("src", currentDayIconPage);
             currentDayImgTempIconEl.setAttribute("alt", "Weather Icon");
             currentDayTempEl.textContent = currentDayTemp;
