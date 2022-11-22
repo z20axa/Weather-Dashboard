@@ -5,21 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
+    <!-- CSS file link -->
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css"/>
 </head>
 
 <body>
+    <!-- main container for main heading, city input section, local storage city entered, current day and 5days forecast sections -->
     <main id="maincontainer">
+        <!-- main heading -->
         <h1>Weather Dashboard</h1>
+        <!-- main container child 1 for city input section, local storage city entered, current day section and 5days section -->
         <section id="maincontainerChild1">
+            <!-- main container child 1 aside section for city input section and local storage city entered -->
             <section id="asideSection">
+                <!-- main container child 1 aside div child for city input section and local storage city entered -->
                 <div id="asideChild1">
                     <h2>Search for a city:</h2>
+                    <!-- city entered submit form text area and button -->
                     <textarea id="inputCityName" placeholder="Philadelphia"></textarea>
                     <div>
                         <button id="submitBtn">Submit</button>
                     </div>
                     <hr>
+                    <!-- city already entered in local storage section -->
                     <ul id="citySearchHistory">
                         <li>Philadephia</li>
                         <li>San Diego</li>
@@ -27,7 +35,9 @@
                 </div>
             </section>
 
+            <!-- current day and next 5 days forecast container section -->
             <section>
+                <!-- current day forecast div container -->
                 <div id="containerCurrentDayForecast">
                     <h2><span id="spanCityName"></span></h2>
                     <!-- Need to add the date -->
@@ -36,9 +46,11 @@
                     <h4>Wind: <span id="spanCurrentDayWind"></span> MPH</h4>
                     <h4>Humidity: <span id="spanCurrentDayHumidity"></span> %</h4>
                 </div>
+                <!-- next 5days forecast div container -->
                 <div id="containerNextFiveDaysForecast">
                     <h3>5-Day Forecast: </h3>
                     <div id="child1ContainerNextFiveDaysForecast">
+                        <!-- next 5days day 1 forecast div container -->
                         <div class="next5DayForecast">
                             <!-- Need to add the date -->
                             <h4><img id="spanNextDay1ImgTempIcon"></h4>
@@ -46,6 +58,7 @@
                             <h4>Wind: <span id="spanNextDay1Wind"></span> MPH</h4>
                             <h4>Humidity: <span id="spanNextDay1Humidity"></span> %</h4>
                         </div>
+                        <!-- next 5days day 2 forecast div container -->
                         <div class="next5DayForecast">
                             <!-- Need to add the date -->
                             <h4><img id="spanNextDay2ImgTempIcon"></h4>
@@ -53,6 +66,7 @@
                             <h4>Wind: <span id="spanNextDay2Wind"></span> MPH</h4>
                             <h4>Humidity: <span id="spanNextDay2Humidity"></span> %</h4>
                         </div>
+                        <!-- next 5days day 3 forecast div container -->
                         <div class="next5DayForecast">
                             <!-- Need to add the date -->
                             <h4><img id="spanNextDay3ImgTempIcon"></h4>
@@ -60,6 +74,7 @@
                             <h4>Wind: <span id="spanNextDay3Wind"></span> MPH</h4>
                             <h4>Humidity: <span id="spanNextDay3Humidity"></span> %</h4>
                         </div>
+                        <!-- next 5days day 4 forecast div container -->
                         <div class="next5DayForecast">
                             <!-- Need to add the date -->
                             <h4><img id="spanNextDay4ImgTempIcon"></h4>
@@ -67,6 +82,7 @@
                             <h4>Wind: <span id="spanNextDay4Wind"></span> MPH</h4>
                             <h4>Humidity: <span id="spanNextDay4Humidity"></span> %</h4>
                         </div>
+                        <!-- next 5days day 5 forecast div container -->
                         <div class="next5DayForecast">
                             <!-- Need to add the date -->
                             <h4><img id="spanNextDay5ImgTempIcon"></h4>
@@ -78,7 +94,7 @@
                 </div>
         </section>
     </main>
-
+    <!-- JS file link -->
     <script src="./assets/script/script.js"></script>
 </body>
 
