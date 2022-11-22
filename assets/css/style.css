@@ -20,11 +20,13 @@ h1 {
 h2 {
     margin:5px;
     font-size: 20px;
+    font-weight: 1000;
 }
 
 /* heading h3 & h4 CSS styling rules */
 h3 {
     margin:5px;
+    font-weight: bold;
 }
 
 /* p CSS styling rules */
