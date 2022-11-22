@@ -84,7 +84,21 @@ hr {
 
 /* city search history CSS styling rules */
 #citySearchHistory {
+    display: flex;
+    flex-direction: column;
+}
 
+/* city search history button CSS styling rules */
+.citySearchHistoryBtn {
+    width: 170px;
+    background-color: #0ba8db;
+    margin: 3px;
+    border-radius: 5px;
+}
+
+/* city search history button hovering CSS styling rules  */
+.citySearchHistoryBtn:hover {
+    background-color: #378654;
 }
 
 /* current day forecast container CSS styling rules */
