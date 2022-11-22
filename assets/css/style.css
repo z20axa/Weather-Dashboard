@@ -57,11 +57,17 @@ hr {
 
 }
 
+/* input city name CSS styling rules */
+#inputCityName {
+    border-radius: 5px;
+}
+
 /* submit button CSS styling rules */
 #submitBtn {
     width: 170px;
     background-color: #0ba8db;
     margin: 3px;
+    border-radius: 5px;
 }
 
 /* submit button hovering CSS styling rules */
