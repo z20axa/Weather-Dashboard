@@ -32,6 +32,7 @@ nextDay5ImgTempIconEl = document.querySelector('#nextDay5ImgTempIcon');
 nextDay5TempEl = document.querySelector('#nextDay5Temp');
 nextDay5WindEl = document.querySelector('#nextDay5Wind');
 nextDay5HumidityEl = document.querySelector('#nextDay5Humidity');
+citySearchHistoryEl = document.querySelector('#citySearchHistory');
 
 // variable declarations 
 var openWeatherAPIKey = "86428bd2b8af57a99daa14d368265a5f"; // for open weather API key
@@ -399,5 +400,8 @@ function getSubmittedCityApi() {
 // function call to display the page inital city forecast data
 getInitialDisplayedCityApi();
 
-// click event listener when the city name is submitted and function call to getApi
+// click event listener when the city name is submitted and function call to get API data
 submitBtnEl.addEventListener('click', getSubmittedCityApi);
+
+// click event listener when the city search history buttom is submitted and function call to get API data
+citySearchHistoryEl.addEventListener('click', getSubmittedCityApi);
