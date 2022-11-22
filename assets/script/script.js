@@ -107,7 +107,7 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
         return response.json();
         })
         .then(function (data) {
-            // console.log('Data', data);
+            console.log('Data', data);
 
             // variables assigments from API data received 
             cityName = data.name;
@@ -136,7 +136,7 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
                 return response.json();
                 })
                 .then(function (data) {
-                // console.log('Second fetch Data', data);
+                console.log('Second fetch Data', data);
 
                 // next day1 forecast variables assigments from API data received 
                 nextDay1IconCode = data.list[0].weather[0].icon;
@@ -148,12 +148,9 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
                 nextDay1DateYear = nextDay1Date.slice(0,4);
                 nextDay1DateMonth = nextDay1Date.slice(5,7);
                 nextDay1DateDay = nextDay1Date.slice(8,10);
-                console.log(nextDay1DateYear);
-                console.log(nextDay1DateMonth);
-                console.log(nextDay1DateDay);
 
                 // next day1 DOM elements modification of the text/attributes for display
-
+                nextDay1DateEl.textContent = `${nextDay1DateMonth}/${nextDay1DateDay}/${nextDay1DateYear}`;
                 nextDay1ImgTempIconEl.setAttribute("src", nextDay1IconPage);
                 nextDay1ImgTempIconEl.setAttribute("alt", "Weather Icon");
                 nextDay1TempEl.textContent = nextDay1Temp;
