@@ -171,7 +171,7 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
                 nextDay2Temp = Math.floor((data.list[8].main.temp - 273.15) * 1.8 + 32);
                 nextDay2Wind = data.list[8].wind.speed;
                 nextDay2Humidity = data.list[8].main.humidity;
-                nextDay2Date = data.list[0].dt_txt;
+                nextDay2Date = data.list[8].dt_txt;
                 nextDay2DateYear = nextDay2Date.slice(0,4);
                 nextDay2DateMonth = nextDay2Date.slice(5,7);
                 nextDay2DateDay = nextDay2Date.slice(8,10);
@@ -190,7 +190,7 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
                 nextDay3Temp = Math.floor((data.list[16].main.temp - 273.15) * 1.8 + 32);
                 nextDay3Wind = data.list[16].wind.speed;
                 nextDay3Humidity = data.list[16].main.humidity;
-                nextDay3Date = data.list[0].dt_txt;
+                nextDay3Date = data.list[16].dt_txt;
                 nextDay3DateYear = nextDay3Date.slice(0,4);
                 nextDay3DateMonth = nextDay3Date.slice(5,7);
                 nextDay3DateDay = nextDay3Date.slice(8,10);
@@ -209,7 +209,7 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
                 nextDay4Temp = Math.floor((data.list[24].main.temp - 273.15) * 1.8 + 32);
                 nextDay4Wind = data.list[24].wind.speed;
                 nextDay4Humidity = data.list[24].main.humidity;
-                nextDay4Date = data.list[0].dt_txt;
+                nextDay4Date = data.list[24].dt_txt;
                 nextDay4DateYear = nextDay4Date.slice(0,4);
                 nextDay4DateMonth = nextDay4Date.slice(5,7);
                 nextDay4DateDay = nextDay4Date.slice(8,10);
@@ -228,7 +228,7 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
                 nextDay5Temp = Math.floor((data.list[32].main.temp - 273.15) * 1.8 + 32);
                 nextDay5Wind = data.list[32].wind.speed;
                 nextDay5Humidity = data.list[32].main.humidity;
-                nextDay5Date = data.list[0].dt_txt;
+                nextDay5Date = data.list[32].dt_txt;
                 nextDay5DateYear = nextDay5Date.slice(0,4);
                 nextDay5DateMonth = nextDay5Date.slice(5,7);
                 nextDay5DateDay = nextDay5Date.slice(8,10);
@@ -262,7 +262,7 @@ function getSubmittedCityApi() {
             // console.log('Data', data);
 
             // variables assigments from API data received 
-            spanCityName = data.name;
+            cityName = data.name;
             currentDayIconCode = data.weather[0].icon;
             currentDayIconPage = `http://openweathermap.org/img/w/${currentDayIconCode}.png`;
             currentDayTemp = Math.floor((data.main.temp - 273.15) * 1.8 + 32);
@@ -271,13 +271,21 @@ function getSubmittedCityApi() {
             lon = data.coord.lon;
             lat = data.coord.lat;
 
-            // DOM elements modification of the text/attributes for display
-            spanCityNameEl.textContent = spanCityName;
-            spanCurrentDayImgTempIconEl.setAttribute("src", currentDayIconPage);
-            spanCurrentDayImgTempIconEl.setAttribute("alt", "Weather Icon");
-            spanCurrentDayTempEl.textContent = currentDayTemp;
-            spanCurrentDayWindEl.textContent = currentDayWind;
-            spanCurrentDayHumidityEl.textContent = currentDayHumidity;
+            // variable assigments and declarations for current date data
+            const date = new Date();
+            let day = date.getDate();
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+            currentDayDate = `${month}/${day}/${year}`;
+
+            // DOM elements current day modification of the text/attributes for display
+            cityNameEl.textContent = cityName;
+            currentDayDateEl.textContent = currentDayDate;
+            currentDayImgTempIconEl.setAttribute("src", currentDayIconPage);
+            currentDayImgTempIconEl.setAttribute("alt", "Weather Icon");
+            currentDayTempEl.textContent = currentDayTemp;
+            currentDayWindEl.textContent = currentDayWind;
+            currentDayHumidityEl.textContent = currentDayHumidity;
               
             // variable assigment for next 5 days requet URL
             nextFivedaysRequestURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${openWeatherAPIKey}`;
@@ -296,13 +304,18 @@ function getSubmittedCityApi() {
                 nextDay1Temp = Math.floor((data.list[0].main.temp - 273.15) * 1.8 + 32);
                 nextDay1Wind = data.list[0].wind.speed;
                 nextDay1Humidity = data.list[0].main.humidity;
+                nextDay1Date = data.list[0].dt_txt;
+                nextDay1DateYear = nextDay1Date.slice(0,4);
+                nextDay1DateMonth = nextDay1Date.slice(5,7);
+                nextDay1DateDay = nextDay1Date.slice(8,10);
 
                 // next day1 DOM elements modification of the text/attributes for display
-                spanNextDay1ImgTempIconEl.setAttribute("src", nextDay1IconPage);
-                spanNextDay1ImgTempIconEl.setAttribute("alt", "Weather Icon");
-                spanNextDay1TempEl.textContent = nextDay1Temp;
-                spanNextDay1WindEl.textContent = nextDay1Wind;
-                spanNextDay1HumidityEl.textContent = nextDay1Humidity;
+                nextDay1DateEl.textContent = `${nextDay1DateMonth}/${nextDay1DateDay}/${nextDay1DateYear}`;
+                nextDay1ImgTempIconEl.setAttribute("src", nextDay1IconPage);
+                nextDay1ImgTempIconEl.setAttribute("alt", "Weather Icon");
+                nextDay1TempEl.textContent = nextDay1Temp;
+                nextDay1WindEl.textContent = nextDay1Wind;
+                nextDay1HumidityEl.textContent = nextDay1Humidity;
 
                 // next day2 forecast variables assigments from API data received 
                 nextDay2IconCode = data.list[8].weather[0].icon;
@@ -310,13 +323,18 @@ function getSubmittedCityApi() {
                 nextDay2Temp = Math.floor((data.list[8].main.temp - 273.15) * 1.8 + 32);
                 nextDay2Wind = data.list[8].wind.speed;
                 nextDay2Humidity = data.list[8].main.humidity;
+                nextDay2Date = data.list[8].dt_txt;
+                nextDay2DateYear = nextDay2Date.slice(0,4);
+                nextDay2DateMonth = nextDay2Date.slice(5,7);
+                nextDay2DateDay = nextDay2Date.slice(8,10);
 
                 // next day2 DOM elements modification of the text/attributes for display
-                spanNextDay2ImgTempIconEl.setAttribute("src", nextDay2IconPage);
-                spanNextDay2ImgTempIconEl.setAttribute("alt", "Weather Icon");
-                spanNextDay2TempEl.textContent = nextDay2Temp;
-                spanNextDay2WindEl.textContent = nextDay2Wind;
-                spanNextDay2HumidityEl.textContent = nextDay2Humidity;
+                nextDay2DateEl.textContent = `${nextDay2DateMonth}/${nextDay2DateDay}/${nextDay2DateYear}`;
+                nextDay2ImgTempIconEl.setAttribute("src", nextDay2IconPage);
+                nextDay2ImgTempIconEl.setAttribute("alt", "Weather Icon");
+                nextDay2TempEl.textContent = nextDay2Temp;
+                nextDay2WindEl.textContent = nextDay2Wind;
+                nextDay2HumidityEl.textContent = nextDay2Humidity;
 
                 // next day3 forecast variables assigments from API data received 
                 nextDay3IconCode = data.list[16].weather[0].icon;
@@ -324,13 +342,18 @@ function getSubmittedCityApi() {
                 nextDay3Temp = Math.floor((data.list[16].main.temp - 273.15) * 1.8 + 32);
                 nextDay3Wind = data.list[16].wind.speed;
                 nextDay3Humidity = data.list[16].main.humidity;
+                nextDay3Date = data.list[16].dt_txt;
+                nextDay3DateYear = nextDay3Date.slice(0,4);
+                nextDay3DateMonth = nextDay3Date.slice(5,7);
+                nextDay3DateDay = nextDay3Date.slice(8,10);
 
                 // next day3 DOM elements modification of the text/attributes for display
-                spanNextDay3ImgTempIconEl.setAttribute("src", nextDay3IconPage);
-                spanNextDay3ImgTempIconEl.setAttribute("alt", "Weather Icon");
-                spanNextDay3TempEl.textContent = nextDay3Temp;
-                spanNextDay3WindEl.textContent = nextDay3Wind;
-                spanNextDay3HumidityEl.textContent = nextDay3Humidity;
+                nextDay3DateEl.textContent = `${nextDay3DateMonth}/${nextDay3DateDay}/${nextDay3DateYear}`;
+                nextDay3ImgTempIconEl.setAttribute("src", nextDay3IconPage);
+                nextDay3ImgTempIconEl.setAttribute("alt", "Weather Icon");
+                nextDay3TempEl.textContent = nextDay3Temp;
+                nextDay3WindEl.textContent = nextDay3Wind;
+                nextDay3HumidityEl.textContent = nextDay3Humidity;
 
                 // next day4 forecast variables assigments from API data received 
                 nextDay4IconCode = data.list[24].weather[0].icon;
@@ -338,13 +361,18 @@ function getSubmittedCityApi() {
                 nextDay4Temp = Math.floor((data.list[24].main.temp - 273.15) * 1.8 + 32);
                 nextDay4Wind = data.list[24].wind.speed;
                 nextDay4Humidity = data.list[24].main.humidity;
+                nextDay4Date = data.list[24].dt_txt;
+                nextDay4DateYear = nextDay4Date.slice(0,4);
+                nextDay4DateMonth = nextDay4Date.slice(5,7);
+                nextDay4DateDay = nextDay4Date.slice(8,10);
 
                 // next day4 DOM elements modification of the text/attributes for display
-                spanNextDay4ImgTempIconEl.setAttribute("src", nextDay4IconPage);
-                spanNextDay4ImgTempIconEl.setAttribute("alt", "Weather Icon");
-                spanNextDay4TempEl.textContent = nextDay4Temp;
-                spanNextDay4WindEl.textContent = nextDay4Wind;
-                spanNextDay4HumidityEl.textContent = nextDay4Humidity;
+                nextDay4DateEl.textContent = `${nextDay4DateMonth}/${nextDay4DateDay}/${nextDay4DateYear}`;
+                nextDay4ImgTempIconEl.setAttribute("src", nextDay4IconPage);
+                nextDay4ImgTempIconEl.setAttribute("alt", "Weather Icon");
+                nextDay4TempEl.textContent = nextDay4Temp;
+                nextDay4WindEl.textContent = nextDay4Wind;
+                nextDay4HumidityEl.textContent = nextDay4Humidity;
 
                 // next day5 forecast variables assigments from API data received 
                 nextDay5IconCode = data.list[32].weather[0].icon;
@@ -352,13 +380,18 @@ function getSubmittedCityApi() {
                 nextDay5Temp = Math.floor((data.list[32].main.temp - 273.15) * 1.8 + 32);
                 nextDay5Wind = data.list[32].wind.speed;
                 nextDay5Humidity = data.list[32].main.humidity;
+                nextDay5Date = data.list[32].dt_txt;
+                nextDay5DateYear = nextDay5Date.slice(0,4);
+                nextDay5DateMonth = nextDay5Date.slice(5,7);
+                nextDay5DateDay = nextDay5Date.slice(8,10);
 
                 // next day5 DOM elements modification of the text/attributes for display
-                spanNextDay5ImgTempIconEl.setAttribute("src", nextDay5IconPage);
-                spanNextDay5ImgTempIconEl.setAttribute("alt", "Weather Icon");
-                spanNextDay5TempEl.textContent = nextDay5Temp;
-                spanNextDay5WindEl.textContent = nextDay5Wind;
-                spanNextDay5HumidityEl.textContent = nextDay5Humidity;
+                nextDay5DateEl.textContent = `${nextDay5DateMonth}/${nextDay5DateDay}/${nextDay5DateYear}`;
+                nextDay5ImgTempIconEl.setAttribute("src", nextDay5IconPage);
+                nextDay5ImgTempIconEl.setAttribute("alt", "Weather Icon");
+                nextDay5TempEl.textContent = nextDay5Temp;
+                nextDay5WindEl.textContent = nextDay5Wind;
+                nextDay5HumidityEl.textContent = nextDay5Humidity;
         }); 
     });
 };
