@@ -1,3 +1,4 @@
+/* document body CSS styling rules */
 body {
     margin: 0;
     padding: 0;
@@ -5,7 +6,7 @@ body {
     background: rgb(189 205 200);
   }
 
-/* heading styling */
+/* heading h1 CSS styling rules */
 h1 {
     font-size: 45px;
     text-align: center;
@@ -15,81 +16,85 @@ h1 {
     border-radius: 5px;
 }
 
+/* heading h2 CSS styling rules */
 h2 {
     margin:5px;
     font-size: 20px;
 }
 
-h3 {
+/* heading h3 & h4 CSS styling rules */
+h3, h4 {
     margin:5px;
 }
 
-h4 {
-    margin: 5px;
-}
-
+/* line break hr CSS styling rules  */
 hr {
     margin: 3px;
 }
 
-/* main container styling */
+/* main container CSS styling rules for main heading, city input section, local storage city entered, current day and 5days forecast sections  */
 #maincontainer {
     border-style: solid;
     border-radius: 10px;
-    margin-top: 140px;
-    margin-right: 50px;
-    margin-left: 50px;
+    margin-top: 60px;
+    margin-left: 240px;
     background-color: #d9d9d9;
+    width: 890px;
 }
 
+/* main container child 1 CSS styling rules for city input section, local storage city entered, current day section and 5days section  */
 #maincontainerChild1 {
     display: flex;
 }
   
+/* main container child 1 aside section CSS styling rules for city input section and local storage city entered */
 #asideSection {
     margin: 5px;
 }
 
+/* main container child 1 aside section child CSS styling rules for local storage city entered */
 #asideChild1 {
 
 }
 
-#cityName {
-    margin: 3px;
-    height: 20px;
-    border-radius: 3px;
-}
-
+/* submit button CSS styling rules */
 #submitBtn {
     width: 170px;
     background-color: #0ba8db;
     margin: 3px;
 }
 
+/* submit button hovering CSS styling rules */
 #submitBtn:hover {
     background-color: #378654;
 }
 
+/* city search history CSS styling rules */
 #citySearchHistory {
 
 }
 
+/* current day forecast container CSS styling rules */
 #containerCurrentDayForecast {
     border-style: groove;
     margin: 5px 5px 20px;
-    width: 580px;
+    width: 668px;
 }
 
+/* next 5days forecast container CSS styling rules */
 #containerNextFiveDaysForecast {
-    width: 590px;
+    width: 680px;
     margin: 4px;
 }
 
+/* next 5days forecast container child flex CSS styling rules */
 #child1ContainerNextFiveDaysForecast {
     display: flex;
     flex-direction: row;
+    width: 680px;
 }
 
+/* next 5days forecast text CSS styling rules */
 .next5DayForecast {
     background-color: rgb(14, 14, 75);
     color: white;
