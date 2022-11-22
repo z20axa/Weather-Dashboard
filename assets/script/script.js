@@ -196,5 +196,6 @@ function getApi() {
     });
 };
 
+
 // click event listener when the city name is submitted and function call to getApi
 submitBtnEl.addEventListener('click', getApi);
