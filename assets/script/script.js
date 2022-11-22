@@ -110,7 +110,7 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
             // console.log('Data', data);
 
             // variables assigments from API data received 
-            spanCityName = data.name;
+            cityName = data.name;
             currentDayIconCode = data.weather[0].icon;
             currentDayIconPage = `http://openweathermap.org/img/w/${currentDayIconCode}.png`;
             currentDayTemp = Math.floor((data.main.temp - 273.15) * 1.8 + 32);
@@ -120,12 +120,12 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
             lat = data.coord.lat;
 
             // DOM elements modification of the text/attributes for display
-            spanCityNameEl.textContent = spanCityName;
-            spanCurrentDayImgTempIconEl.setAttribute("src", currentDayIconPage);
-            spanCurrentDayImgTempIconEl.setAttribute("alt", "Weather Icon");
-            spanCurrentDayTempEl.textContent = currentDayTemp;
-            spanCurrentDayWindEl.textContent = currentDayWind;
-            spanCurrentDayHumidityEl.textContent = currentDayHumidity;
+            cityNameEl.textContent = cityName;
+            currentDayImgTempIconEl.setAttribute("src", currentDayIconPage);
+            currentDayImgTempIconEl.setAttribute("alt", "Weather Icon");
+            currentDayTempEl.textContent = currentDayTemp;
+            currentDayWindEl.textContent = currentDayWind;
+            currentDayHumidityEl.textContent = currentDayHumidity;
               
             // variable assigment for next 5 days requet URL
             nextFivedaysRequestURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${openWeatherAPIKey}`;
@@ -151,11 +151,11 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
 
                 // next day1 DOM elements modification of the text/attributes for display
 
-                spanNextDay1ImgTempIconEl.setAttribute("src", nextDay1IconPage);
-                spanNextDay1ImgTempIconEl.setAttribute("alt", "Weather Icon");
-                spanNextDay1TempEl.textContent = nextDay1Temp;
-                spanNextDay1WindEl.textContent = nextDay1Wind;
-                spanNextDay1HumidityEl.textContent = nextDay1Humidity;
+                nextDay1ImgTempIconEl.setAttribute("src", nextDay1IconPage);
+                nextDay1ImgTempIconEl.setAttribute("alt", "Weather Icon");
+                nextDay1TempEl.textContent = nextDay1Temp;
+                nextDay1WindEl.textContent = nextDay1Wind;
+                nextDay1HumidityEl.textContent = nextDay1Humidity;
 
                 // next day2 forecast variables assigments from API data received 
                 nextDay2IconCode = data.list[8].weather[0].icon;
@@ -165,11 +165,11 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
                 nextDay2Humidity = data.list[8].main.humidity;
 
                 // next day2 DOM elements modification of the text/attributes for display
-                spanNextDay2ImgTempIconEl.setAttribute("src", nextDay2IconPage);
-                spanNextDay2ImgTempIconEl.setAttribute("alt", "Weather Icon");
-                spanNextDay2TempEl.textContent = nextDay2Temp;
-                spanNextDay2WindEl.textContent = nextDay2Wind;
-                spanNextDay2HumidityEl.textContent = nextDay2Humidity;
+                nextDay2ImgTempIconEl.setAttribute("src", nextDay2IconPage);
+                nextDay2ImgTempIconEl.setAttribute("alt", "Weather Icon");
+                nextDay2TempEl.textContent = nextDay2Temp;
+                nextDay2WindEl.textContent = nextDay2Wind;
+                nextDay2HumidityEl.textContent = nextDay2Humidity;
 
                 // next day3 forecast variables assigments from API data received 
                 nextDay3IconCode = data.list[16].weather[0].icon;
@@ -179,11 +179,11 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
                 nextDay3Humidity = data.list[16].main.humidity;
 
                 // next day3 DOM elements modification of the text/attributes for display
-                spanNextDay3ImgTempIconEl.setAttribute("src", nextDay3IconPage);
-                spanNextDay3ImgTempIconEl.setAttribute("alt", "Weather Icon");
-                spanNextDay3TempEl.textContent = nextDay3Temp;
-                spanNextDay3WindEl.textContent = nextDay3Wind;
-                spanNextDay3HumidityEl.textContent = nextDay3Humidity;
+                nextDay3ImgTempIconEl.setAttribute("src", nextDay3IconPage);
+                nextDay3ImgTempIconEl.setAttribute("alt", "Weather Icon");
+                nextDay3TempEl.textContent = nextDay3Temp;
+                nextDay3WindEl.textContent = nextDay3Wind;
+                nextDay3HumidityEl.textContent = nextDay3Humidity;
 
                 // next day4 forecast variables assigments from API data received 
                 nextDay4IconCode = data.list[24].weather[0].icon;
@@ -193,11 +193,11 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
                 nextDay4Humidity = data.list[24].main.humidity;
 
                 // next day4 DOM elements modification of the text/attributes for display
-                spanNextDay4ImgTempIconEl.setAttribute("src", nextDay4IconPage);
-                spanNextDay4ImgTempIconEl.setAttribute("alt", "Weather Icon");
-                spanNextDay4TempEl.textContent = nextDay4Temp;
-                spanNextDay4WindEl.textContent = nextDay4Wind;
-                spanNextDay4HumidityEl.textContent = nextDay4Humidity;
+                nextDay4ImgTempIconEl.setAttribute("src", nextDay4IconPage);
+                nextDay4ImgTempIconEl.setAttribute("alt", "Weather Icon");
+                nextDay4TempEl.textContent = nextDay4Temp;
+                nextDay4WindEl.textContent = nextDay4Wind;
+                nextDay4HumidityEl.textContent = nextDay4Humidity;
 
                 // next day5 forecast variables assigments from API data received 
                 nextDay5IconCode = data.list[32].weather[0].icon;
@@ -207,11 +207,11 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
                 nextDay5Humidity = data.list[32].main.humidity;
 
                 // next day5 DOM elements modification of the text/attributes for display
-                spanNextDay5ImgTempIconEl.setAttribute("src", nextDay5IconPage);
-                spanNextDay5ImgTempIconEl.setAttribute("alt", "Weather Icon");
-                spanNextDay5TempEl.textContent = nextDay5Temp;
-                spanNextDay5WindEl.textContent = nextDay5Wind;
-                spanNextDay5HumidityEl.textContent = nextDay5Humidity;
+                nextDay5ImgTempIconEl.setAttribute("src", nextDay5IconPage);
+                nextDay5ImgTempIconEl.setAttribute("alt", "Weather Icon");
+                nextDay5TempEl.textContent = nextDay5Temp;
+                nextDay5WindEl.textContent = nextDay5Wind;
+                nextDay5HumidityEl.textContent = nextDay5Humidity;
         }); 
     });
 };
