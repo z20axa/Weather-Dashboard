@@ -47,7 +47,10 @@ var currentDayWind = "" // for current day forecast wind data
 var currentDayHumidity = "" // for current day forecast humidity data
 var lon = ""; // for city submitted lon data
 var lat = ""; // for city submitted lat data
-// need next day 1 date varible
+var nextDay1Date = ""; // for next day1 forecast full date info
+var nextDay1DateYear = ""; // for next day1 forecast year date
+var nextDay1DateMonth = ""; // for next day1 forecast month date
+var nextDay1DateDay = ""; // for next day1 forecast day date
 var nextDay1IconCode = ""; // for next day1 forecast icon code data
 var nextDay1IconPage = ""; // for next day1 forecast icon code page data
 var nextDay1Temp = ""; // for next day1 forecast temp data
@@ -79,7 +82,7 @@ var nextDay5Wind = ""; // for next day5 forecast wind data
 var nextDay5Humidity = ""; // for next day5 forecast humidity data
 
 /**
- * function declaration for API calls to get data for initial city display and modiy attributes of the DOM element variables
+ * function declaration for API calls to get data for initial city display current day and next 5days forecast and modiy attributes of the DOM element variables
  */
  function getInitialDisplayedCityApi() {
     // variable assigments
@@ -129,8 +132,13 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
                 nextDay1Temp = Math.floor((data.list[0].main.temp - 273.15) * 1.8 + 32);
                 nextDay1Wind = data.list[0].wind.speed;
                 nextDay1Humidity = data.list[0].main.humidity;
+                nextDay1Date = data.list[0].dt_txt;
+                nextDay1DateYear = date.slice(0,4);
+                nextDay1DateMonth = date.slice(5,7);
+                nextDay1DateDay = date.slice(8,10);
 
                 // next day1 DOM elements modification of the text/attributes for display
+
                 spanNextDay1ImgTempIconEl.setAttribute("src", nextDay1IconPage);
                 spanNextDay1ImgTempIconEl.setAttribute("alt", "Weather Icon");
                 spanNextDay1TempEl.textContent = nextDay1Temp;
@@ -198,7 +206,7 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
 
 
 /**
- * function declaration for API calls to get data and modiy attributes of the DOM element variables
+ * function declaration for API calls to get forecast data for submitted city current day and next 5 days forecast and modiy attributes of the DOM element variables
  */
 function getSubmittedCityApi() {
     // variable assigments
@@ -315,7 +323,7 @@ function getSubmittedCityApi() {
     });
 };
 
-// function call to display the inital city forecast data
+// function call to display the page inital city forecast data
 getInitialDisplayedCityApi();
 
 // click event listener when the city name is submitted and function call to getApi
