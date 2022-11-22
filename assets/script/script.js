@@ -145,9 +145,12 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
                 nextDay1Wind = data.list[0].wind.speed;
                 nextDay1Humidity = data.list[0].main.humidity;
                 nextDay1Date = data.list[0].dt_txt;
-                nextDay1DateYear = date.slice(0,4);
-                nextDay1DateMonth = date.slice(5,7);
-                nextDay1DateDay = date.slice(8,10);
+                nextDay1DateYear = nextDay1Date.slice(0,4);
+                nextDay1DateMonth = nextDay1Date.slice(5,7);
+                nextDay1DateDay = nextDay1Date.slice(8,10);
+                console.log(nextDay1DateYear);
+                console.log(nextDay1DateMonth);
+                console.log(nextDay1DateDay);
 
                 // next day1 DOM elements modification of the text/attributes for display
 
