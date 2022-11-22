@@ -2,7 +2,7 @@
 inputCityNameEl = document.querySelector('#inputCityName');
 submitBtnEl = document.querySelector('#submitBtn');
 cityNameEl = document.querySelector('#cityName');
-// need current date element
+currentDayEl = document.querySelector('#currentDate');
 currentDayImgTempIconEl = document.querySelector('#currentDayImgTempIcon');
 currentDayTempEl = document.querySelector('#currentDayTemp');
 currentDayWindEl = document.querySelector('#currentDayWind');
@@ -39,7 +39,7 @@ var cityNameSubmitted = ""; // for user submitted city name
 var currentDayRequestURL = ""; // for URL to get the current day weather forecast data
 var nextFivedaysRequestURL = ""; // for URL to get the next 5-days weather forecast data
 var cityName = ""; // for city name to be displayed
-// need current date variable
+var currentDayDate = ""; // for current day date
 var currentDayIconCode = ""; // for current day forecast icon code data
 var currentDayIconPage = ""; // for current day forecast icon code page data
 var currentDayTemp = ""; // for current day forecast temp data
@@ -107,7 +107,7 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
         return response.json();
         })
         .then(function (data) {
-            console.log('Data', data);
+            // console.log('Data', data);
 
             // variables assigments from API data received 
             cityName = data.name;
@@ -119,8 +119,16 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
             lon = data.coord.lon;
             lat = data.coord.lat;
 
-            // DOM elements modification of the text/attributes for display
+            // variable assigments and declarations for current date data
+            const date = new Date();
+            let day = date.getDate();
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+            currentDayDate = `${month}/${day}/${year}`;
+
+            // DOM elements current day modification of the text/attributes for display
             cityNameEl.textContent = cityName;
+            currentDayEl.textContent = currentDayDate;
             currentDayImgTempIconEl.setAttribute("src", currentDayIconPage);
             currentDayImgTempIconEl.setAttribute("alt", "Weather Icon");
             currentDayTempEl.textContent = currentDayTemp;
@@ -136,7 +144,7 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
                 return response.json();
                 })
                 .then(function (data) {
-                console.log('Second fetch Data', data);
+                // console.log('Second fetch Data', data);
 
                 // next day1 forecast variables assigments from API data received 
                 nextDay1IconCode = data.list[0].weather[0].icon;
