@@ -27,6 +27,11 @@ h3, h4 {
     margin:5px;
 }
 
+/* p CSS styling rules */
+p {
+    margin:5px;
+}
+
 /* line break hr CSS styling rules  */
 hr {
     margin: 3px;
