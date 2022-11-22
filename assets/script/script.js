@@ -94,7 +94,7 @@ var nextDay5IconPage = ""; // for next day5 forecast icon code page data
 var nextDay5Temp = ""; // for next day5 forecast temp data
 var nextDay5Wind = ""; // for next day5 forecast wind data
 var nextDay5Humidity = ""; // for next day5 forecast humidity data
-var searchedCityArr = []; // for search city history array
+var searchedCitiesArr = []; // for search city history array
 
 /**
  * function declaration for API calls to get data for initial city display current day and next 5days forecast and modiy attributes of the DOM element variables
@@ -256,10 +256,10 @@ var searchedCityArr = []; // for search city history array
     currentDayRequestURL = `http://api.openweathermap.org/data/2.5/weather?q=${cityNameSubmitted}&appid=${openWeatherAPIKey}`;
     
     // adds the submitted city to searched city array at the end
-    searchCityArr.push(cityNameSubmitted);
+    searchedCitiesArr.push(cityNameSubmitted);
 
     // save to local storage the submitted city array
-    localStorage.setItem("Searched Cities", JSON.stringify(searchedCityArr));
+    localStorage.setItem("Searched Cities", JSON.stringify(searchedCitiesArr));
 
     // fetch request to get data from API for current day weather condition 
     fetch(currentDayRequestURL)
@@ -405,178 +405,178 @@ var searchedCityArr = []; // for search city history array
 };
 
 
-/**
- * function declaration for API calls to get forecast data for search city history submitted current day and next 5 days forecast and modiy attributes of the DOM element variables
- */
-function getCitySearchHistoryApi() {
-    // variable assigments
-    searchCity = citySearchHistoryBtnEl.value;
-    console.log('Seached City', searchCity);
+// /**
+//  * function declaration for API calls to get forecast data for search city history submitted current day and next 5 days forecast and modiy attributes of the DOM element variables
+//  */
+// function getCitySearchHistoryApi() {
+//     // variable assigments
+//     searchCity = citySearchHistoryBtnEl.value;
+//     console.log('Seached City', searchCity);
 
 
-    currentDayRequestURL = `http://api.openweathermap.org/data/2.5/weather?q=${cityNameSubmitted}&appid=${openWeatherAPIKey}`;
+//     currentDayRequestURL = `http://api.openweathermap.org/data/2.5/weather?q=${cityNameSubmitted}&appid=${openWeatherAPIKey}`;
 
-    // fetch request to get data from API for current day weather condition 
-    fetch(currentDayRequestURL)
-        .then(function (response) {
-        return response.json();
-        })
-        .then(function (data) {
-            // console.log('Data', data);
+//     // fetch request to get data from API for current day weather condition 
+//     fetch(currentDayRequestURL)
+//         .then(function (response) {
+//         return response.json();
+//         })
+//         .then(function (data) {
+//             // console.log('Data', data);
 
-            // variables assigments from API data received 
-            cityName = data.name;
-            currentDayIconCode = data.weather[0].icon;
-            currentDayIconPage = `http://openweathermap.org/img/w/${currentDayIconCode}.png`;
-            currentDayTemp = Math.floor((data.main.temp - 273.15) * 1.8 + 32);
-            currentDayWind = data.wind.speed;
-            currentDayHumidity = data.main.humidity; 
-            lon = data.coord.lon;
-            lat = data.coord.lat;
+//             // variables assigments from API data received 
+//             cityName = data.name;
+//             currentDayIconCode = data.weather[0].icon;
+//             currentDayIconPage = `http://openweathermap.org/img/w/${currentDayIconCode}.png`;
+//             currentDayTemp = Math.floor((data.main.temp - 273.15) * 1.8 + 32);
+//             currentDayWind = data.wind.speed;
+//             currentDayHumidity = data.main.humidity; 
+//             lon = data.coord.lon;
+//             lat = data.coord.lat;
 
-            // variable assigments and declarations for current date data
-            const date = new Date();
-            let day = date.getDate();
-            let month = date.getMonth() + 1;
-            let year = date.getFullYear();
-            currentDayDate = `${month}/${day}/${year}`;
+//             // variable assigments and declarations for current date data
+//             const date = new Date();
+//             let day = date.getDate();
+//             let month = date.getMonth() + 1;
+//             let year = date.getFullYear();
+//             currentDayDate = `${month}/${day}/${year}`;
 
-            // DOM elements current day modification of the text/attributes for display
-            cityNameEl.textContent = cityName;
-            currentDayDateEl.textContent = currentDayDate;
-            currentDayImgTempIconEl.setAttribute("src", currentDayIconPage);
-            currentDayImgTempIconEl.setAttribute("alt", "Weather Icon");
-            currentDayTempEl.textContent = currentDayTemp;
-            currentDayWindEl.textContent = currentDayWind;
-            currentDayHumidityEl.textContent = currentDayHumidity;
+//             // DOM elements current day modification of the text/attributes for display
+//             cityNameEl.textContent = cityName;
+//             currentDayDateEl.textContent = currentDayDate;
+//             currentDayImgTempIconEl.setAttribute("src", currentDayIconPage);
+//             currentDayImgTempIconEl.setAttribute("alt", "Weather Icon");
+//             currentDayTempEl.textContent = currentDayTemp;
+//             currentDayWindEl.textContent = currentDayWind;
+//             currentDayHumidityEl.textContent = currentDayHumidity;
               
-            // variable assigment for next 5 days requet URL
-            nextFivedaysRequestURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${openWeatherAPIKey}`;
+//             // variable assigment for next 5 days requet URL
+//             nextFivedaysRequestURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${openWeatherAPIKey}`;
 
-            // fetch request to get data from API for the next 5-days weather forecast using lon and lat data from previous fecth call 
-            fetch(nextFivedaysRequestURL)
-                .then(function (response) {
-                return response.json();
-                })
-                .then(function (data) {
-                // console.log('Second fetch Data', data);
+//             // fetch request to get data from API for the next 5-days weather forecast using lon and lat data from previous fecth call 
+//             fetch(nextFivedaysRequestURL)
+//                 .then(function (response) {
+//                 return response.json();
+//                 })
+//                 .then(function (data) {
+//                 // console.log('Second fetch Data', data);
 
-                // next day1 forecast variables assigments from API data received 
-                nextDay1IconCode = data.list[0].weather[0].icon;
-                nextDay1IconPage = `http://openweathermap.org/img/w/${nextDay1IconCode}.png`;
-                nextDay1Temp = Math.floor((data.list[0].main.temp - 273.15) * 1.8 + 32);
-                nextDay1Wind = data.list[0].wind.speed;
-                nextDay1Humidity = data.list[0].main.humidity;
-                nextDay1Date = data.list[0].dt_txt;
-                nextDay1DateYear = nextDay1Date.slice(0,4);
-                nextDay1DateMonth = nextDay1Date.slice(5,7);
-                nextDay1DateDay = nextDay1Date.slice(8,10);
+//                 // next day1 forecast variables assigments from API data received 
+//                 nextDay1IconCode = data.list[0].weather[0].icon;
+//                 nextDay1IconPage = `http://openweathermap.org/img/w/${nextDay1IconCode}.png`;
+//                 nextDay1Temp = Math.floor((data.list[0].main.temp - 273.15) * 1.8 + 32);
+//                 nextDay1Wind = data.list[0].wind.speed;
+//                 nextDay1Humidity = data.list[0].main.humidity;
+//                 nextDay1Date = data.list[0].dt_txt;
+//                 nextDay1DateYear = nextDay1Date.slice(0,4);
+//                 nextDay1DateMonth = nextDay1Date.slice(5,7);
+//                 nextDay1DateDay = nextDay1Date.slice(8,10);
 
-                // next day1 DOM elements modification of the text/attributes for display
-                nextDay1DateEl.textContent = `${nextDay1DateMonth}/${nextDay1DateDay}/${nextDay1DateYear}`;
-                nextDay1ImgTempIconEl.setAttribute("src", nextDay1IconPage);
-                nextDay1ImgTempIconEl.setAttribute("alt", "Weather Icon");
-                nextDay1TempEl.textContent = nextDay1Temp;
-                nextDay1WindEl.textContent = nextDay1Wind;
-                nextDay1HumidityEl.textContent = nextDay1Humidity;
+//                 // next day1 DOM elements modification of the text/attributes for display
+//                 nextDay1DateEl.textContent = `${nextDay1DateMonth}/${nextDay1DateDay}/${nextDay1DateYear}`;
+//                 nextDay1ImgTempIconEl.setAttribute("src", nextDay1IconPage);
+//                 nextDay1ImgTempIconEl.setAttribute("alt", "Weather Icon");
+//                 nextDay1TempEl.textContent = nextDay1Temp;
+//                 nextDay1WindEl.textContent = nextDay1Wind;
+//                 nextDay1HumidityEl.textContent = nextDay1Humidity;
 
-                // next day2 forecast variables assigments from API data received 
-                nextDay2IconCode = data.list[8].weather[0].icon;
-                nextDay2IconPage = `http://openweathermap.org/img/w/${nextDay2IconCode}.png`;
-                nextDay2Temp = Math.floor((data.list[8].main.temp - 273.15) * 1.8 + 32);
-                nextDay2Wind = data.list[8].wind.speed;
-                nextDay2Humidity = data.list[8].main.humidity;
-                nextDay2Date = data.list[8].dt_txt;
-                nextDay2DateYear = nextDay2Date.slice(0,4);
-                nextDay2DateMonth = nextDay2Date.slice(5,7);
-                nextDay2DateDay = nextDay2Date.slice(8,10);
+//                 // next day2 forecast variables assigments from API data received 
+//                 nextDay2IconCode = data.list[8].weather[0].icon;
+//                 nextDay2IconPage = `http://openweathermap.org/img/w/${nextDay2IconCode}.png`;
+//                 nextDay2Temp = Math.floor((data.list[8].main.temp - 273.15) * 1.8 + 32);
+//                 nextDay2Wind = data.list[8].wind.speed;
+//                 nextDay2Humidity = data.list[8].main.humidity;
+//                 nextDay2Date = data.list[8].dt_txt;
+//                 nextDay2DateYear = nextDay2Date.slice(0,4);
+//                 nextDay2DateMonth = nextDay2Date.slice(5,7);
+//                 nextDay2DateDay = nextDay2Date.slice(8,10);
 
-                // next day2 DOM elements modification of the text/attributes for display
-                nextDay2DateEl.textContent = `${nextDay2DateMonth}/${nextDay2DateDay}/${nextDay2DateYear}`;
-                nextDay2ImgTempIconEl.setAttribute("src", nextDay2IconPage);
-                nextDay2ImgTempIconEl.setAttribute("alt", "Weather Icon");
-                nextDay2TempEl.textContent = nextDay2Temp;
-                nextDay2WindEl.textContent = nextDay2Wind;
-                nextDay2HumidityEl.textContent = nextDay2Humidity;
+//                 // next day2 DOM elements modification of the text/attributes for display
+//                 nextDay2DateEl.textContent = `${nextDay2DateMonth}/${nextDay2DateDay}/${nextDay2DateYear}`;
+//                 nextDay2ImgTempIconEl.setAttribute("src", nextDay2IconPage);
+//                 nextDay2ImgTempIconEl.setAttribute("alt", "Weather Icon");
+//                 nextDay2TempEl.textContent = nextDay2Temp;
+//                 nextDay2WindEl.textContent = nextDay2Wind;
+//                 nextDay2HumidityEl.textContent = nextDay2Humidity;
 
-                // next day3 forecast variables assigments from API data received 
-                nextDay3IconCode = data.list[16].weather[0].icon;
-                nextDay3IconPage = `http://openweathermap.org/img/w/${nextDay3IconCode}.png`;
-                nextDay3Temp = Math.floor((data.list[16].main.temp - 273.15) * 1.8 + 32);
-                nextDay3Wind = data.list[16].wind.speed;
-                nextDay3Humidity = data.list[16].main.humidity;
-                nextDay3Date = data.list[16].dt_txt;
-                nextDay3DateYear = nextDay3Date.slice(0,4);
-                nextDay3DateMonth = nextDay3Date.slice(5,7);
-                nextDay3DateDay = nextDay3Date.slice(8,10);
+//                 // next day3 forecast variables assigments from API data received 
+//                 nextDay3IconCode = data.list[16].weather[0].icon;
+//                 nextDay3IconPage = `http://openweathermap.org/img/w/${nextDay3IconCode}.png`;
+//                 nextDay3Temp = Math.floor((data.list[16].main.temp - 273.15) * 1.8 + 32);
+//                 nextDay3Wind = data.list[16].wind.speed;
+//                 nextDay3Humidity = data.list[16].main.humidity;
+//                 nextDay3Date = data.list[16].dt_txt;
+//                 nextDay3DateYear = nextDay3Date.slice(0,4);
+//                 nextDay3DateMonth = nextDay3Date.slice(5,7);
+//                 nextDay3DateDay = nextDay3Date.slice(8,10);
 
-                // next day3 DOM elements modification of the text/attributes for display
-                nextDay3DateEl.textContent = `${nextDay3DateMonth}/${nextDay3DateDay}/${nextDay3DateYear}`;
-                nextDay3ImgTempIconEl.setAttribute("src", nextDay3IconPage);
-                nextDay3ImgTempIconEl.setAttribute("alt", "Weather Icon");
-                nextDay3TempEl.textContent = nextDay3Temp;
-                nextDay3WindEl.textContent = nextDay3Wind;
-                nextDay3HumidityEl.textContent = nextDay3Humidity;
+//                 // next day3 DOM elements modification of the text/attributes for display
+//                 nextDay3DateEl.textContent = `${nextDay3DateMonth}/${nextDay3DateDay}/${nextDay3DateYear}`;
+//                 nextDay3ImgTempIconEl.setAttribute("src", nextDay3IconPage);
+//                 nextDay3ImgTempIconEl.setAttribute("alt", "Weather Icon");
+//                 nextDay3TempEl.textContent = nextDay3Temp;
+//                 nextDay3WindEl.textContent = nextDay3Wind;
+//                 nextDay3HumidityEl.textContent = nextDay3Humidity;
 
-                // next day4 forecast variables assigments from API data received 
-                nextDay4IconCode = data.list[24].weather[0].icon;
-                nextDay4IconPage = `http://openweathermap.org/img/w/${nextDay4IconCode}.png`;
-                nextDay4Temp = Math.floor((data.list[24].main.temp - 273.15) * 1.8 + 32);
-                nextDay4Wind = data.list[24].wind.speed;
-                nextDay4Humidity = data.list[24].main.humidity;
-                nextDay4Date = data.list[24].dt_txt;
-                nextDay4DateYear = nextDay4Date.slice(0,4);
-                nextDay4DateMonth = nextDay4Date.slice(5,7);
-                nextDay4DateDay = nextDay4Date.slice(8,10);
+//                 // next day4 forecast variables assigments from API data received 
+//                 nextDay4IconCode = data.list[24].weather[0].icon;
+//                 nextDay4IconPage = `http://openweathermap.org/img/w/${nextDay4IconCode}.png`;
+//                 nextDay4Temp = Math.floor((data.list[24].main.temp - 273.15) * 1.8 + 32);
+//                 nextDay4Wind = data.list[24].wind.speed;
+//                 nextDay4Humidity = data.list[24].main.humidity;
+//                 nextDay4Date = data.list[24].dt_txt;
+//                 nextDay4DateYear = nextDay4Date.slice(0,4);
+//                 nextDay4DateMonth = nextDay4Date.slice(5,7);
+//                 nextDay4DateDay = nextDay4Date.slice(8,10);
 
-                // next day4 DOM elements modification of the text/attributes for display
-                nextDay4DateEl.textContent = `${nextDay4DateMonth}/${nextDay4DateDay}/${nextDay4DateYear}`;
-                nextDay4ImgTempIconEl.setAttribute("src", nextDay4IconPage);
-                nextDay4ImgTempIconEl.setAttribute("alt", "Weather Icon");
-                nextDay4TempEl.textContent = nextDay4Temp;
-                nextDay4WindEl.textContent = nextDay4Wind;
-                nextDay4HumidityEl.textContent = nextDay4Humidity;
+//                 // next day4 DOM elements modification of the text/attributes for display
+//                 nextDay4DateEl.textContent = `${nextDay4DateMonth}/${nextDay4DateDay}/${nextDay4DateYear}`;
+//                 nextDay4ImgTempIconEl.setAttribute("src", nextDay4IconPage);
+//                 nextDay4ImgTempIconEl.setAttribute("alt", "Weather Icon");
+//                 nextDay4TempEl.textContent = nextDay4Temp;
+//                 nextDay4WindEl.textContent = nextDay4Wind;
+//                 nextDay4HumidityEl.textContent = nextDay4Humidity;
 
-                // next day5 forecast variables assigments from API data received 
-                nextDay5IconCode = data.list[32].weather[0].icon;
-                nextDay5IconPage = `http://openweathermap.org/img/w/${nextDay5IconCode}.png`;
-                nextDay5Temp = Math.floor((data.list[32].main.temp - 273.15) * 1.8 + 32);
-                nextDay5Wind = data.list[32].wind.speed;
-                nextDay5Humidity = data.list[32].main.humidity;
-                nextDay5Date = data.list[32].dt_txt;
-                nextDay5DateYear = nextDay5Date.slice(0,4);
-                nextDay5DateMonth = nextDay5Date.slice(5,7);
-                nextDay5DateDay = nextDay5Date.slice(8,10);
+//                 // next day5 forecast variables assigments from API data received 
+//                 nextDay5IconCode = data.list[32].weather[0].icon;
+//                 nextDay5IconPage = `http://openweathermap.org/img/w/${nextDay5IconCode}.png`;
+//                 nextDay5Temp = Math.floor((data.list[32].main.temp - 273.15) * 1.8 + 32);
+//                 nextDay5Wind = data.list[32].wind.speed;
+//                 nextDay5Humidity = data.list[32].main.humidity;
+//                 nextDay5Date = data.list[32].dt_txt;
+//                 nextDay5DateYear = nextDay5Date.slice(0,4);
+//                 nextDay5DateMonth = nextDay5Date.slice(5,7);
+//                 nextDay5DateDay = nextDay5Date.slice(8,10);
 
-                // next day5 DOM elements modification of the text/attributes for display
-                nextDay5DateEl.textContent = `${nextDay5DateMonth}/${nextDay5DateDay}/${nextDay5DateYear}`;
-                nextDay5ImgTempIconEl.setAttribute("src", nextDay5IconPage);
-                nextDay5ImgTempIconEl.setAttribute("alt", "Weather Icon");
-                nextDay5TempEl.textContent = nextDay5Temp;
-                nextDay5WindEl.textContent = nextDay5Wind;
-                nextDay5HumidityEl.textContent = nextDay5Humidity;
-        }); 
-    });
-};
+//                 // next day5 DOM elements modification of the text/attributes for display
+//                 nextDay5DateEl.textContent = `${nextDay5DateMonth}/${nextDay5DateDay}/${nextDay5DateYear}`;
+//                 nextDay5ImgTempIconEl.setAttribute("src", nextDay5IconPage);
+//                 nextDay5ImgTempIconEl.setAttribute("alt", "Weather Icon");
+//                 nextDay5TempEl.textContent = nextDay5Temp;
+//                 nextDay5WindEl.textContent = nextDay5Wind;
+//                 nextDay5HumidityEl.textContent = nextDay5Humidity;
+//         }); 
+//     });
+// };
 
 
 
-/** function declaration to get search city history items from the local storage and for display
- * 
- * @returns 
- */
- function renderquizScore(){
-    var initials = JSON.parse(localStorage.getItem("Initials")); // get initals value from local storage
-    var quizscore = JSON.parse(localStorage.getItem("QuizScore")); // get quiz score from local storage
+// /** function declaration to get search city history items from the local storage and for display
+//  * 
+//  * @returns 
+//  */
+//  function renderquizScore(){
+//     var initials = JSON.parse(localStorage.getItem("Initials")); // get initals value from local storage
+//     var quizscore = JSON.parse(localStorage.getItem("QuizScore")); // get quiz score from local storage
   
-      // checks if local storage items are empty
-      if (initials===null || quizscore===null){
-          return;
-      };
+//       // checks if local storage items are empty
+//       if (initials===null || quizscore===null){
+//           return;
+//       };
   
-      // modify the text/attributes for the initals and quiz score for display
-      highscoreSection.textContent = '1. ' + initials + ' - ' + quizscore;
-  };
+//       // modify the text/attributes for the initals and quiz score for display
+//       highscoreSection.textContent = '1. ' + initials + ' - ' + quizscore;
+//   };
 
 // function call to display the page inital city forecast data
 getInitialDisplayedCityApi();
@@ -584,20 +584,6 @@ getInitialDisplayedCityApi();
 // click event listener when the city name is submitted and function call to get API data
 submitBtnEl.addEventListener('click', getSubmittedCityApi);
 
-// click event listener when the city search history buttom is submitted and function call to get API data
-citySearchHistoryEl.addEventListener('click', getCitySearchHistoryApi);
+// // click event listener when the city search history buttom is submitted and function call to get API data
+// citySearchHistoryEl.addEventListener('click', getCitySearchHistoryApi);
 
-// event listener to the initals submit button 
-initialsButton.addEventListener("click", function(event){
-    event.preventDefault();
-      // checks to make sure initial input is not blank
-      if(initials.value === ""){
-        alert("Initials cannot be blank!!!");
-      }else{
-      // store initals and quiz score to local storage 
-      localStorage.setItem("Initials", JSON.stringify(initials.value));
-      localStorage.setItem("QuizScore", JSON.stringify(quizScore));
-      // once submit button is clicked takes you to high score page
-      window.location.href="highscores.html";
-      };
-    });
