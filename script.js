@@ -187,11 +187,11 @@ function getApi() {
                 nextDay5Humidity = data.list[32].main.humidity;
 
                 // next day5 DOM elements modification of the text/attributes for display
-                spanNextDay2ImgTempIconEl.setAttribute("src", nextDay5IconPage);
-                spanNextDay2ImgTempIconEl.setAttribute("alt", "Weather Icon");
-                spanNextDay2TempEl.textContent = nextDay2Temp;
-                spanNextDay2WindEl.textContent = nextDay2Wind;
-                spanNextDay2HumidityEl.textContent = nextDay2Humidity;
+                spanNextDay5ImgTempIconEl.setAttribute("src", nextDay5IconPage);
+                spanNextDay5ImgTempIconEl.setAttribute("alt", "Weather Icon");
+                spanNextDay5TempEl.textContent = nextDay5Temp;
+                spanNextDay5WindEl.textContent = nextDay5Wind;
+                spanNextDay5HumidityEl.textContent = nextDay5Humidity;
         }); 
     });
 };
