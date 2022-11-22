@@ -1,44 +1,44 @@
 // DOM elements variable declarations
 inputCityNameEl = document.querySelector('#inputCityName');
 submitBtnEl = document.querySelector('#submitBtn');
-spanCityNameEl = document.querySelector('#spanCityName');
+cityNameEl = document.querySelector('#cityName');
 // need current date element
-spanCurrentDayImgTempIconEl = document.querySelector('#spanCurrentDayImgTempIcon');
-spanCurrentDayTempEl = document.querySelector('#spanCurrentDayTemp');
-spanCurrentDayWindEl = document.querySelector('#spanCurrentDayWind');
-spanCurrentDayHumidityEl = document.querySelector('#spanCurrentDayHumidity');
+currentDayImgTempIconEl = document.querySelector('#currentDayImgTempIcon');
+currentDayTempEl = document.querySelector('#currentDayTemp');
+currentDayWindEl = document.querySelector('#currentDayWind');
+currentDayHumidityEl = document.querySelector('#currentDayHumidity');
 // need next day 1 element
-spanNextDay1ImgTempIconEl = document.querySelector('#spanNextDay1ImgTempIcon');
-spanNextDay1TempEl = document.querySelector('#spanNextDay1Temp');
-spanNextDay1WindEl = document.querySelector('#spanNextDay1Wind');
-spanNextDay1HumidityEl = document.querySelector('#spanNextDay1Humidity');
+nextDay1ImgTempIconEl = document.querySelector('#nextDay1ImgTempIcon');
+nextDay1TempEl = document.querySelector('#nextDay1Temp');
+nextDay1WindEl = document.querySelector('#nextDay1Wind');
+nextDay1HumidityEl = document.querySelector('#nextDay1Humidity');
 // need next day 2 element
-spanNextDay2ImgTempIconEl = document.querySelector('#spanNextDay2ImgTempIcon');
-spanNextDay2TempEl = document.querySelector('#spanNextDay2Temp');
-spanNextDay2WindEl = document.querySelector('#spanNextDay2Wind');
-spanNextDay2HumidityEl = document.querySelector('#spanNextDay2Humidity');
+nextDay2ImgTempIconEl = document.querySelector('#nextDay2ImgTempIcon');
+nextDay2TempEl = document.querySelector('#nextDay2Temp');
+nextDay2WindEl = document.querySelector('#nextDay2Wind');
+nextDay2HumidityEl = document.querySelector('#nextDay2Humidity');
 // need next day 3 element
-spanNextDay3ImgTempIconEl = document.querySelector('#spanNextDay3ImgTempIcon');
-spanNextDay3TempEl = document.querySelector('#spanNextDay3Temp');
-spanNextDay3WindEl = document.querySelector('#spanNextDay3Wind');
-spanNextDay3HumidityEl = document.querySelector('#spanNextDay3Humidity');
+nextDay3ImgTempIconEl = document.querySelector('#nextDay3ImgTempIcon');
+nextDay3TempEl = document.querySelector('#nextDay3Temp');
+nextDay3WindEl = document.querySelector('#nextDay3Wind');
+nextDay3HumidityEl = document.querySelector('#nextDay3Humidity');
 // need next day 4 element
-spanNextDay4ImgTempIconEl = document.querySelector('#spanNextDay4ImgTempIcon');
-spanNextDay4TempEl = document.querySelector('#spanNextDay4Temp');
-spanNextDay4WindEl = document.querySelector('#spanNextDay4Wind');
-spanNextDay4HumidityEl = document.querySelector('#spanNextDay4Humidity');
+nextDay4ImgTempIconEl = document.querySelector('#nextDay4ImgTempIcon');
+nextDay4TempEl = document.querySelector('#nextDay4Temp');
+nextDay4WindEl = document.querySelector('#nextDay4Wind');
+nextDay4HumidityEl = document.querySelector('#nextDay4Humidity');
 // need next day 5 element
-spanNextDay5ImgTempIconEl = document.querySelector('#spanNextDay5ImgTempIcon');
-spanNextDay5TempEl = document.querySelector('#spanNextDay5Temp');
-spanNextDay5WindEl = document.querySelector('#spanNextDay5Wind');
-spanNextDay5HumidityEl = document.querySelector('#spanNextDay5Humidity');
+nextDay5ImgTempIconEl = document.querySelector('#nextDay5ImgTempIcon');
+nextDay5TempEl = document.querySelector('#nextDay5Temp');
+nextDay5WindEl = document.querySelector('#nextDay5Wind');
+nextDay5HumidityEl = document.querySelector('#nextDay5Humidity');
 
 // variable declarations 
 var openWeatherAPIKey = "86428bd2b8af57a99daa14d368265a5f"; // for open weather API key
 var cityNameSubmitted = ""; // for user submitted city name
 var currentDayRequestURL = ""; // for URL to get the current day weather forecast data
 var nextFivedaysRequestURL = ""; // for URL to get the next 5-days weather forecast data
-var spanCityName = ""; // for city name to be displayed
+var cityName = ""; // for city name to be displayed
 // need current date variable
 var currentDayIconCode = ""; // for current day forecast icon code data
 var currentDayIconPage = ""; // for current day forecast icon code page data
@@ -56,25 +56,37 @@ var nextDay1IconPage = ""; // for next day1 forecast icon code page data
 var nextDay1Temp = ""; // for next day1 forecast temp data
 var nextDay1Wind = ""; // for next day1 forecast wind data
 var nextDay1Humidity = ""; // for next day1 forecast humidity data
-// need next day 2 date varible
+var nextDay2Date = ""; // for next day2 forecast full date info
+var nextDay2DateYear = ""; // for next day2 forecast year date
+var nextDay2DateMonth = ""; // for next day2 forecast month date
+var nextDay2DateDay = ""; // for next day2 forecast day date
 var nextDay2IconCode = ""; // for next day2 forecast icon code data
 var nextDay2IconPage = ""; // for next day2 forecast icon code page data
 var nextDay2Temp = ""; // for next day2 forecast temp data
 var nextDay2Wind = ""; // for next day2 forecast wind data
 var nextDay2Humidity = ""; // for next day2 forecast humidity data
-// need next day 3 date varible
+var nextDay3Date = ""; // for next day3 forecast full date info
+var nextDay3DateYear = ""; // for next day3 forecast year date
+var nextDay3DateMonth = ""; // for next day3 forecast month date
+var nextDay3DateDay = ""; // for next day3 forecast day date
 var nextDay3IconCode = ""; // for next day3 forecast icon code data
 var nextDay3IconPage = ""; // for next day3 forecast icon code page data
 var nextDay3Temp = ""; // for next day3 forecast temp data
 var nextDay3Wind = ""; // for next day3 forecast wind data
 var nextDay3Humidity = ""; // for next day3 forecast humidity data
-// need next day 4 date varible
+var nextDay4Date = ""; // for next day4 forecast full date info
+var nextDay4DateYear = ""; // for next day4 forecast year date
+var nextDay4DateMonth = ""; // for next day4 forecast month date
+var nextDay4DateDay = ""; // for next day4 forecast day date
 var nextDay4IconCode = ""; // for next day4 forecast icon code data
 var nextDay4IconPage = ""; // for next day4 forecast icon code page data
 var nextDay4Temp = ""; // for next day4 forecast temp data
 var nextDay4Wind = ""; // for next day4 forecast wind data
 var nextDay4Humidity = ""; // for next day4 forecast humidity data
-// need next day 5 date varible
+var nextDay5Date = ""; // for next day5 forecast full date info
+var nextDay5DateYear = ""; // for next day5 forecast year date
+var nextDay5DateMonth = ""; // for next day5 forecast month date
+var nextDay5DateDay = ""; // for next day5 forecast day date
 var nextDay5IconCode = ""; // for next day5 forecast icon code data
 var nextDay5IconPage = ""; // for next day5 forecast icon code page data
 var nextDay5Temp = ""; // for next day5 forecast temp data
