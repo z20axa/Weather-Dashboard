@@ -7,27 +7,27 @@ currentDayImgTempIconEl = document.querySelector('#currentDayImgTempIcon');
 currentDayTempEl = document.querySelector('#currentDayTemp');
 currentDayWindEl = document.querySelector('#currentDayWind');
 currentDayHumidityEl = document.querySelector('#currentDayHumidity');
-// need next day 1 element
+nextDay1DateEl = document.querySelector('#nextDay1Date');
 nextDay1ImgTempIconEl = document.querySelector('#nextDay1ImgTempIcon');
 nextDay1TempEl = document.querySelector('#nextDay1Temp');
 nextDay1WindEl = document.querySelector('#nextDay1Wind');
 nextDay1HumidityEl = document.querySelector('#nextDay1Humidity');
-// need next day 2 element
+nextDay2DateEl = document.querySelector('#nextDay2Date');
 nextDay2ImgTempIconEl = document.querySelector('#nextDay2ImgTempIcon');
 nextDay2TempEl = document.querySelector('#nextDay2Temp');
 nextDay2WindEl = document.querySelector('#nextDay2Wind');
 nextDay2HumidityEl = document.querySelector('#nextDay2Humidity');
-// need next day 3 element
+nextDay3DateEl = document.querySelector('#nextDay3Date');
 nextDay3ImgTempIconEl = document.querySelector('#nextDay3ImgTempIcon');
 nextDay3TempEl = document.querySelector('#nextDay3Temp');
 nextDay3WindEl = document.querySelector('#nextDay3Wind');
 nextDay3HumidityEl = document.querySelector('#nextDay3Humidity');
-// need next day 4 element
+nextDay4DateEl = document.querySelector('#nextDay4Date');
 nextDay4ImgTempIconEl = document.querySelector('#nextDay4ImgTempIcon');
 nextDay4TempEl = document.querySelector('#nextDay4Temp');
 nextDay4WindEl = document.querySelector('#nextDay4Wind');
 nextDay4HumidityEl = document.querySelector('#nextDay4Humidity');
-// need next day 5 element
+nextDay5DateEl = document.querySelector('#nextDay5Date');
 nextDay5ImgTempIconEl = document.querySelector('#nextDay5ImgTempIcon');
 nextDay5TempEl = document.querySelector('#nextDay5Temp');
 nextDay5WindEl = document.querySelector('#nextDay5Wind');
