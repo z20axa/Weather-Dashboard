@@ -38,7 +38,7 @@ THEN I am again presented with current and future conditions for that city
 ```
 ## Website Link
 
-<!-- Follow [THIS LINK](https://z20axa.github.io/Work-Day-Scheduler/) -->
+Follow [THIS LINK](https://z20axa.github.io/Weather-Dashboard/)
 
 ## Technologies Used
 
