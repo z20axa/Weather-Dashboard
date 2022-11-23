@@ -49,4 +49,10 @@ THEN I am again presented with current and future conditions for that city
 
 ## Deployed Website ScreenShot
 
-<!-- ![WebSite SreenShot](Web_capture_5-11-2022_15024_.jpeg "WebSite ScreenShot") -->
+![WebSite SreenShot1](./assets/screenshotimgs/Web%20capture_23-11-2022_141810_.jpeg "WebSite ScreenShot1")
+
+![WebSite SreenShot2](./assets/screenshotimgs/Web%20capture_23-11-2022_14204_.jpeg "WebSite ScreenShot2")
+
+![WebSite SreenShot3](./assets/screenshotimgs/Web%20capture_23-11-2022_141923_.jpeg "WebSite ScreenShot3")
+
+
