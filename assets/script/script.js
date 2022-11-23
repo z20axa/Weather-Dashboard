@@ -416,11 +416,14 @@ var searchedCitiesArr = []; // for search city history array
 /**
  * function declaration for API calls to get forecast data for searched city history submitted current day and next 5 days forecast and modiy attributes of the DOM element variables
  */
-function getCitySearchHistoryApi() {
-    // variable assigments
-    searchedCityClicked = searchedCityBtnEl.innerHTML;
-    console.log('Seached City', searchedCityClicked);
+function getCitySearchHistoryApi(event) {
+    // variable declaration
+    var child = event.target; 
+    // console.log(child);
+    // console.log(child.innerText);
 
+    // variable assigment
+    searchedCityClicked = child.innerText;
 
     currentDayRequestURL = `http://api.openweathermap.org/data/2.5/weather?q=${searchedCityClicked}&appid=${openWeatherAPIKey}`;
 
@@ -573,6 +576,7 @@ getInitialDisplayedCityApi();
 // click event listener when the city name is submitted and function call to get API data
 submitBtnEl.addEventListener('click', getSubmittedCityApi);
 
-// click event listener when the city search history buttom is submitted and function call to get API data
-citySearchHistoryEl.addEventListener('click', getCitySearchHistoryApi);
-
+// click event listener when the city search history button is submitted and function call to get API data
+citySearchHistoryEl.addEventListener('click', function(event){
+    getCitySearchHistoryApi(event);
+});
