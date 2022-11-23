@@ -93,7 +93,6 @@ var nextDay5IconPage = ""; // for next day5 forecast icon code page data
 var nextDay5Temp = ""; // for next day5 forecast temp data
 var nextDay5Wind = ""; // for next day5 forecast wind data
 var nextDay5Humidity = ""; // for next day5 forecast humidity data
-var searchedCitiesArr = []; // for search city history array
 
 /**
  * function declaration for API calls to get data for initial city display current day and next 5days forecast and modiy attributes of the DOM element variables
@@ -280,12 +279,6 @@ var searchedCitiesArr = []; // for search city history array
             searchedCityBtnEl.innerHTML = cityName;
             // append button element created for display
             citySearchHistoryEl.append(searchedCityBtnEl);
-
-            // adds the submitted city to searched city array at the end
-            searchedCitiesArr.push(cityName);
-            // save to local storage the submitted city to the searched city array
-            localStorage.setItem("Searched Cities", JSON.stringify(searchedCitiesArr));
-
 
             // variable assigments and declarations for current date data
             const date = new Date();
