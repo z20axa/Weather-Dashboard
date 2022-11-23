@@ -258,8 +258,20 @@ var searchedCitiesArr = []; // for search city history array
     // adds the submitted city to searched city array at the end
     searchedCitiesArr.push(cityNameSubmitted);
 
-    // save to local storage the submitted city array
+    // save to local storage the submitted city 
     localStorage.setItem("Searched Cities", JSON.stringify(searchedCitiesArr));
+
+    // 
+    for (var i = 0; i < searchedCitiesArr.length ; i++){
+        var searchedCityBtnEl = document.createElement("button");
+        searchedCityEl.classList.add('citySearchHistoryBtn');
+        searchedCityEl.innerHTML = searchedCitiesArr[i];
+        citySearchHistoryEl.append(searchedCityEl);
+        // savedCityEl.addEventListener("click", getValue)
+    };
+
+    // create buttons for submitted city 
+    var li1button = document.createElement('button');
 
     // fetch request to get data from API for current day weather condition 
     fetch(currentDayRequestURL)
@@ -558,8 +570,6 @@ var searchedCitiesArr = []; // for search city history array
 //         }); 
 //     });
 // };
-
-
 
 // /** function declaration to get search city history items from the local storage and for display
 //  * 
