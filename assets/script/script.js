@@ -263,10 +263,10 @@ var searchedCitiesArr = []; // for search city history array
 
     // 
     for (var i = 0; i < searchedCitiesArr.length ; i++){
-        var searchedCityBtnEl = document.createElement("button");
-        searchedCityEl.classList.add('citySearchHistoryBtn');
-        searchedCityEl.innerHTML = searchedCitiesArr[i];
-        citySearchHistoryEl.append(searchedCityEl);
+        searchedCityBtnEl = document.createElement("button");
+        searchedCityBtnEl.classList.add('citySearchHistoryBtn');
+        searchedCityBtnEl.innerHTML = searchedCitiesArr[i];
+        citySearchHistoryEl.append(searchedCityBtnEl);
         // savedCityEl.addEventListener("click", getValue)
     };
 
