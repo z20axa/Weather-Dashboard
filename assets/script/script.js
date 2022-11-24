@@ -1,4 +1,4 @@
-// DOM elements variable declarations
+// DOM elements variable declarations/assignments
 var inputCityNameEl = document.querySelector('#inputCityName');
 var submitBtnEl = document.querySelector('#submitBtn');
 var cityNameEl = document.querySelector('#cityName');
@@ -34,8 +34,9 @@ var nextDay5WindEl = document.querySelector('#nextDay5Wind');
 var nextDay5HumidityEl = document.querySelector('#nextDay5Humidity');
 var citySearchHistoryEl = document.querySelector('#citySearchHistory');
 
-// variable declarations 
+// variables initial declarations/assigments
 var openWeatherAPIKey = "86428bd2b8af57a99daa14d368265a5f"; // for open weather API key
+var initialCity = "Philadelphia"; // for initial city weather forecast display
 var cityNameSubmitted = ""; // for user submitted city name
 var currentDayRequestURL = ""; // for URL to get the current day weather forecast data
 var nextFivedaysRequestURL = ""; // for URL to get the next 5-days weather forecast data
@@ -99,8 +100,7 @@ var nextDay5Humidity = ""; // for next day5 forecast humidity data
  */
 function displayInitialPageCityWeatherForecast() {
     // variable assigments
-    cityNameSubmitted = "Philadelphia";
-    currentDayRequestURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityNameSubmitted}&appid=${openWeatherAPIKey}`;
+    currentDayRequestURL = `https://api.openweathermap.org/data/2.5/weather?q=${initialCity}&appid=${openWeatherAPIKey}`;
 
     // fucntion call to get current day API request and DOM elements modification of the text/attributes for display
     getAPICurrentDayWeatherForecast (currentDayRequestURL);
@@ -132,12 +132,11 @@ function displaySubmittedCityWeatherForecast() {
  * function declaration to display the weather forecast for already submitted/searched city histories
  */
 function displayCitySearchedHistoryWeatherForecast(event) {
-    // variable declaration
+    // variable declaration/assignment
     var child = event.target; 
 
-    // variable assigment
+    // variable assigments
     searchedCityClicked = child.innerText;
-
     currentDayRequestURL = `https://api.openweathermap.org/data/2.5/weather?q=${searchedCityClicked}&appid=${openWeatherAPIKey}`;
 
     // fucntion call to get current day API request and DOM elements modification of the text/attributes for display
